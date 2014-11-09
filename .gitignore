@@ -5,7 +5,13 @@ Temp/
 Obj/
 UnityGenerated/
 Library/
-*/Library/
+SeriousGame/Temp/
+SeriousGame/Obj/
+SeriousGame/UnityGenerated/
+SeriousGame/Library/
+
+SeriousGame/
+*.sln
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
