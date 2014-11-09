@@ -49,7 +49,6 @@ public class LevelMakerManagerScript : MonoBehaviour {
 				{
 					hotel[floor, block] = 0;
 				}
-				Debug.Log(hotel[floor, block]);
 			}
 		}
 	}
