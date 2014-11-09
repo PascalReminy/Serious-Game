@@ -13,6 +13,8 @@ public class LevelMakerManagerScript : MonoBehaviour {
 
 	public GameObject wallPrefab;
 	public GameObject windowWasteRespawnerPrefab;
+	public GameObject GlassDoorPrefab;
+	public GameObject WallPrefab;
 	public LevelDifficulty difficulty;
 	public int hotelWidth = 3;
 	public int hotelHeight = 3;
@@ -48,6 +50,20 @@ public class LevelMakerManagerScript : MonoBehaviour {
 				else
 				{
 					hotel[floor, block] = 0;
+					if(floor > hotelHeight+1)
+					{
+						if((hotel.GetLength(1)%2 == 1) && block == hotel.GetLength(1)/2)
+						{
+							hotel[floor, block] = 2;
+						}
+						else
+						{
+							if((hotel.GetLength(1)%2 == 0) && (block == (hotel.GetLength(1)-1)/2 || block == (hotel.GetLength(1)-1)/2+1))
+							{
+								hotel[floor, block] = 2;
+							}
+						}
+					}
 				}
 			}
 		}
@@ -69,6 +85,20 @@ public class LevelMakerManagerScript : MonoBehaviour {
 					if(hotel[floor, block] == 1)
 					{
 						Instantiate(windowWasteRespawnerPrefab, new Vector3(block,hotel.GetLength(0)-floor), Quaternion.identity);
+					}
+					else
+					{
+						if(hotel[floor, block] == 2)
+						{
+							Instantiate(GlassDoorPrefab, new Vector3(block,hotel.GetLength(0)-floor), Quaternion.identity);
+						}
+						else
+						{
+							if(hotel[floor, block] == 3)
+							{
+								Instantiate(WallPrefab, new Vector3(block,hotel.GetLength(0)-floor), Quaternion.identity);
+							}
+						}
 					}
 				}
 
