@@ -11,11 +11,11 @@ GameObject:
   - 33: {fileID: 3300000}
   - 65: {fileID: 6500000}
   - 23: {fileID: 2300000}
-  - 114: {fileID: 11400002}
+  - 114: {fileID: 11400000}
   - 54: {fileID: 5400000}
   m_Layer: 0
-  m_Name: B_Plastique
-  m_TagString: plastique
+  m_Name: Paper
+  m_TagString: papier
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -4.37113883e-08}
-  m_LocalPosition: {x: 21.7409286, y: 3.50900316, z: 1.65556359}
+  m_LocalPosition: {x: 30.7409286, y: 3.50900316, z: 1.65556359}
   m_LocalScale: {x: 2.14033985, y: 2.14033985, z: .313012928}
   m_Children: []
   m_Father: {fileID: 0}
@@ -44,7 +44,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 1860eccf63ff37a49b71a75c1a6cb181, type: 2}
+  - {fileID: 2100000, guid: b32eba415c5791446973c45fff7395ea, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -86,7 +86,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11400002
+--- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
