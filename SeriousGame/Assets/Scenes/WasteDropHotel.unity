@@ -191,7 +191,7 @@ MonoBehaviour:
   GlassDoorPrefab: {fileID: 100000, guid: 73d6a73e35ab7e2408b111ebe08f8a8a, type: 2}
   WallPrefab: {fileID: 100000, guid: d06db56a9e76fd741af2c29945f31cfc, type: 2}
   difficulty: 0
-  hotelWidth: 8
+  hotelWidth: 1
   hotelHeight: 5
 --- !u!4 &1795521783
 Transform:
