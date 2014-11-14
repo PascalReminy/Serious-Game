@@ -6,6 +6,9 @@ TagManager:
   - verre
   - plastique
   - papier
+  - Glass
+  - Plastic
+  - Paper
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

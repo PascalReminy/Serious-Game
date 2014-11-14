@@ -49,7 +49,10 @@
      <Compile Include="Assets\Scripts\DesactiveObj.cs" />
      <Compile Include="Assets\Scripts\MainScript.cs" />
      <Compile Include="Assets\Scripts\ObjScript.cs" />
+     <Compile Include="Assets\Scripts\WasteDropHotel\DumpsterCarouselScript.cs" />
      <Compile Include="Assets\Scripts\WasteDropHotel\LevelMakerManagerScript.cs" />
+     <Compile Include="Assets\Scripts\WasteDropHotel\WasteRespawnScript.cs" />
+     <None Include="Assets\Shaders\UnlitTransparentSurfaceShader.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
