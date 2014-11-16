@@ -133,7 +133,7 @@ Camera:
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 10
   m_Depth: -1
   m_CullingMask:
@@ -169,7 +169,7 @@ GameObject:
   - 114: {fileID: 1107338412}
   m_Layer: 0
   m_Name: DumpsterCarousel
-  m_TagString: Untagged
+  m_TagString: Plastic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -185,13 +185,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 651f10e2097408047ab1c03a7bc73af1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carouselRotationSpeed: .5
-  dumpsters:
-  - {fileID: 100000, guid: a9b30060923332a4fadec52ca38456d4, type: 2}
-  - {fileID: 100000, guid: a430c6ef22df1d7488f728ced1597852, type: 2}
-  - {fileID: 100000, guid: b8b3c655307f6104799df32ee9dac62c, type: 2}
-  _currentDumpsterIndex: 0
-  _currentYRotation: 0
+  carouselRotationSpeed: 2
+  carouselRadius: 5
+  carouselItemsPrefabs:
+  - {fileID: 100000, guid: 3d503c644a3a98e4cac3023ecbcf4d10, type: 2}
+  - {fileID: 100000, guid: 049c7b374cc2a0246a04c07e93a24492, type: 2}
+  - {fileID: 100000, guid: d9ad3b98cf4f1494e8850c6175e452be, type: 2}
+  - {fileID: 100000, guid: e76ac688d408f364da625c2adbfd8173, type: 2}
+  - {fileID: 100000, guid: 3d503c644a3a98e4cac3023ecbcf4d10, type: 2}
+  rotateLeftKeyCode: 276
+  rotateRightKeyCode: 275
+  _selectedItemIndex: 0
+  _wantedItemIndex: 1
+  _rotationAmount: 0
+  _currentRotationY: 0
 --- !u!4 &1107338413
 Transform:
   m_ObjectHideFlags: 0
@@ -204,6 +211,69 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!1 &1368984473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1368984475}
+  - 108: {fileID: 1368984474}
+  m_Layer: 0
+  m_Name: Directional light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!108 &1368984474
+Light:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1368984473}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Type: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: .5
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_Strength: 1
+    m_Bias: .0500000007
+    m_Softness: 4
+    m_SoftnessFade: 1
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_ActuallyLightmapped: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 1
+  m_ShadowSamples: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+  m_IndirectIntensity: 1
+  m_AreaSize: {x: 1, y: 1}
+--- !u!4 &1368984475
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1368984473}
+  m_LocalRotation: {x: .408217937, y: -.234569728, z: .109381661, w: .875426114}
+  m_LocalPosition: {x: -1.50630975, y: 5.31120157, z: -.149516732}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
 --- !u!1 &1795521781
 GameObject:
   m_ObjectHideFlags: 0
