@@ -237,10 +237,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69619452bca13394c9d2a8c333bd4c15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onSwipeUpColor: {r: .889705896, g: .359807551, b: .359807551, a: 1}
-  onSwipeDownColor: {r: .397058845, g: 1, b: .426166385, a: 1}
-  onSwipeLeftColor: {r: .318771631, g: .626751006, b: .985294104, a: 1}
-  onSwipeRightColor: {r: .972819507, g: 1, b: .507352948, a: .53725493}
+  onSwipeUpColor: {r: .948529422, g: .278979212, b: .278979212, a: 1}
+  onSwipeDownColor: {r: .286764681, g: 1, b: .321196795, a: 1}
+  onSwipeLeftColor: {r: .20588237, g: .572819531, b: 1, a: 1}
+  onSwipeRightColor: {r: .962677538, g: 1, b: .323529422, a: 1}
 --- !u!1 &2107780237
 GameObject:
   m_ObjectHideFlags: 0

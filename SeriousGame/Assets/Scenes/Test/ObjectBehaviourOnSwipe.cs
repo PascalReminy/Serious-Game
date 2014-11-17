@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ObjectBehevoirOnSwipe : MonoBehaviour {
+public class ObjectBehaviourOnSwipe : MonoBehaviour {
 
 	public Color onSwipeUpColor;
 	public Color onSwipeDownColor;

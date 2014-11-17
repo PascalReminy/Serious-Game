@@ -46,7 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scenes\Test\ObjectBehevoirOnSwipe.cs" />
+     <Compile Include="Assets\Scenes\Test\ObjectBehaviourOnSwipe.cs" />
      <Compile Include="Assets\Scenes\Test\SwipeGestureRecognizer.cs" />
      <Compile Include="Assets\Scripts\DesactiveObj.cs" />
      <Compile Include="Assets\Scripts\MainScript.cs" />

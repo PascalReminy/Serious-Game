@@ -158,7 +158,6 @@ public class SwipeGestureRecognizer : MonoBehaviour {
 
 	IEnumerator GoBackToInitialPosition()
 	{
-		Debug.Log("Go Back to initial position");
 		Vector3 currentPosition = swipeGestureUser.transform.position;
 		while(_moveAmount <= 1f)
 		{
@@ -231,7 +230,6 @@ public class SwipeGestureRecognizer : MonoBehaviour {
 
 		if(!_isSwiping)
 		{
-			Debug.Log ("Not swiping anymore");
 			swipeGestureUser.SendMessage("OnSwipePerformed",
 			                             new SwipeState(_swipingFingerStartPosition, _swipingFingerCurrentPosition, swipeDir),
 			                             SendMessageOptions.DontRequireReceiver);
@@ -246,24 +244,19 @@ public class SwipeGestureRecognizer : MonoBehaviour {
 			//the object follow user swiping finger
 			if(followSwipe)
 			{
-				Debug.Log("Follow");
 				var currentPos = swipeGestureUser.transform.position;
 				var tmp = Camera.main.ScreenToWorldPoint(_swipingFingerCurrentPosition ) - Camera.main.ScreenToWorldPoint(_swipingFingerStartPosition);
 				if(moveAlongSingleAxisAtSameTime)
 				{
 					if(swipeHorizontalDistance/Screen.width > swipeVerticalDistance/Screen.height)
 					{
-						currentPos += new Vector3( tmp.x - currentPos.x, currentPos.y, currentPos.z);
+						currentPos = new Vector3( tmp.x - _initialSwipeObjectPosition.x, _initialSwipeObjectPosition.y, _initialSwipeObjectPosition.z);
 					}
 					else
 					{
 						if(swipeHorizontalDistance/Screen.width < swipeVerticalDistance/Screen.height)
 						{
-							currentPos += new Vector3( currentPos.x , tmp.y - currentPos.y, currentPos.z);
-						}
-						else
-						{
-							currentPos += new Vector3( tmp.x - currentPos.x, tmp.y - currentPos.y, currentPos.z);
+							currentPos = new Vector3( _initialSwipeObjectPosition.x , tmp.y - _initialSwipeObjectPosition.y, _initialSwipeObjectPosition.z);
 						}
 					}
 				}
