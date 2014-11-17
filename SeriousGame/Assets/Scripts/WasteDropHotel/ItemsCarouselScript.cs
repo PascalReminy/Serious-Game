@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class DumpsterCarouselScript : MonoBehaviour {
+public class ItemsCarouselScript : MonoBehaviour {
 
 	public float carouselRotationSpeed = 0.1f;	//carousel rotation speed
 	public float carouselRadius = 1.0f;	//carousel radius
@@ -82,10 +82,10 @@ public class DumpsterCarouselScript : MonoBehaviour {
 	IEnumerator RotateCarousel()
 	{
 		var toto = 0.0f;
-		while (_rotationAmount < _angleBetweenCarouselItems)
+		while (_rotationAmount <= _angleBetweenCarouselItems)
 		{
 			toto = toto + 1 * Time.deltaTime; 
-			//this.transform.RotateAround(Vector3.zero,Vector3.up,_rotationDirection * _angleBetweenCarouselItems * carouselRotationSpeed * Time.deltaTime);
+			this.transform.RotateAround(Vector3.zero,Vector3.up,_rotationDirection * _angleBetweenCarouselItems * carouselRotationSpeed * Time.deltaTime);
 			_rotationAmount = _rotationAmount + _angleBetweenCarouselItems * carouselRotationSpeed * Time.deltaTime;
 
 			yield return new WaitForSeconds(Time.deltaTime);

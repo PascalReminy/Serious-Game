@@ -20,11 +20,12 @@ public class LevelMakerManagerScript : MonoBehaviour {
 	public int hotelHeight = 3;
 	public int[,] hotel;
 
+	private GameObject _hotelGameObject;
+
 	// Use this for initialization
 	void Start () {
-		//int[][] hotel = new int[3][3];
 		hotel = new int[hotelHeight+4, hotelWidth];
-
+		_hotelGameObject = new GameObject("Hotel");
 		GenerateRandomHotel();
 		InstantiateHotel();
 		Debug.Log(hotel);
@@ -73,34 +74,46 @@ public class LevelMakerManagerScript : MonoBehaviour {
 	{
 		for(int floor = 0; floor < hotel.GetLength(0); floor++)
 		{
+			var floorGameObject = new GameObject("floor"+floor);
+			floorGameObject.transform.parent = _hotelGameObject.transform;
+
 			for(int block = 0; block < hotel.GetLength(1); block ++ )
 			{
-
-				if(hotel[floor, block] == 0)
+				if(hotel[floor, block] == 0)	//Brick Wall
 				{
-					Instantiate(wallPrefab, new Vector3(block,hotel.GetLength(0)-floor), Quaternion.identity);
+					var blockGameObject = Instantiate(wallPrefab, new Vector3(hotel.GetLength(1)/2 - block, hotel.GetLength(0)  -floor), Quaternion.identity) as GameObject;
+					blockGameObject.name = "block"+block;
+					blockGameObject.transform.parent = floorGameObject.transform;
 				}
 				else
 				{
-					if(hotel[floor, block] == 1)
+					if(hotel[floor, block] == 1)	//Window
 					{
-						Instantiate(windowWasteRespawnerPrefab, new Vector3(block,hotel.GetLength(0)-floor), Quaternion.identity);
+						var blockGameObject = Instantiate(windowWasteRespawnerPrefab, new Vector3(hotel.GetLength(1)/2 - block, hotel.GetLength(0) - floor), Quaternion.identity) as GameObject;
+						blockGameObject.name = "block"+block;
+						blockGameObject.transform.parent = floorGameObject.transform;
 					}
 					else
 					{
-						if(hotel[floor, block] == 2)
+						if(hotel[floor, block] == 2)	//Door
 						{
-							Instantiate(GlassDoorPrefab, new Vector3(block,hotel.GetLength(0)-floor), Quaternion.identity);
+							var blockGameObject = Instantiate(GlassDoorPrefab, new Vector3(hotel.GetLength(1)/2 - block, hotel.GetLength(0) - floor), Quaternion.identity) as GameObject;
+							blockGameObject.name = "block"+block;
+							blockGameObject.transform.parent = floorGameObject.transform;
 						}
 						else
 						{
-							if(hotel[floor, block] == 3)
+							if(hotel[floor, block] == 3)	//Wall
 							{
-								Instantiate(WallPrefab, new Vector3(block,hotel.GetLength(0)-floor), Quaternion.identity);
+								var blockGameObject = Instantiate(WallPrefab, new Vector3(hotel.GetLength(1)/2 - block, hotel.GetLength(0) - floor), Quaternion.identity) as GameObject;
+								blockGameObject.name = "block"+block;
+								blockGameObject.transform.parent = floorGameObject.transform;
 							}
 						}
 					}
 				}
+
+
 
 			}
 		}

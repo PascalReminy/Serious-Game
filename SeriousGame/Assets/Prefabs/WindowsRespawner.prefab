@@ -43,7 +43,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 1b98d1d26dc6eaf42a703a01436d8b03, type: 2}
+  - {fileID: 2100000, guid: d03ade369c0bc304dac21edd7aa28ab7, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -81,6 +81,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0fdb30f9c6765140a50525e799fa2c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dumpsterCaroussel: {fileID: 0}
+  paperDumpster: {fileID: 0}
+  plasticDumpster: {fileID: 0}
+  glassDumpster: {fileID: 0}
+  paperWaste:
+  - {fileID: 0}
+  - {fileID: 0}
+  plasticWaste:
+  - {fileID: 0}
+  - {fileID: 0}
+  glassWaste:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

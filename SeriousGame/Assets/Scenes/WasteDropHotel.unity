@@ -133,7 +133,7 @@ Camera:
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 10
   m_Depth: -1
   m_CullingMask:
@@ -168,7 +168,7 @@ GameObject:
   - 4: {fileID: 1107338413}
   - 114: {fileID: 1107338412}
   m_Layer: 0
-  m_Name: DumpsterCarousel
+  m_Name: Carousel
   m_TagString: Plastic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -182,19 +182,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1107338411}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 651f10e2097408047ab1c03a7bc73af1, type: 3}
+  m_Script: {fileID: 11500000, guid: 44f1db9d0a2e202419599a0cd522e9ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   carouselRotationSpeed: 2
-  carouselRadius: 5
+  carouselRadius: 1
   carouselItemsPrefabs:
-  - {fileID: 100000, guid: 3d503c644a3a98e4cac3023ecbcf4d10, type: 2}
-  - {fileID: 100000, guid: 049c7b374cc2a0246a04c07e93a24492, type: 2}
-  - {fileID: 100000, guid: d9ad3b98cf4f1494e8850c6175e452be, type: 2}
-  - {fileID: 100000, guid: e76ac688d408f364da625c2adbfd8173, type: 2}
-  - {fileID: 100000, guid: 3d503c644a3a98e4cac3023ecbcf4d10, type: 2}
-  rotateLeftKeyCode: 276
-  rotateRightKeyCode: 275
+  - {fileID: 100000, guid: a9b30060923332a4fadec52ca38456d4, type: 2}
+  - {fileID: 100000, guid: b8b3c655307f6104799df32ee9dac62c, type: 2}
+  - {fileID: 100000, guid: a430c6ef22df1d7488f728ced1597852, type: 2}
+  rotateLeftKeyCode: 119
+  rotateRightKeyCode: 120
   _selectedItemIndex: 0
   _wantedItemIndex: 1
   _rotationAmount: 0
@@ -206,11 +204,53 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1107338411}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.50630975, y: -5.31120157, z: .149516732}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
+  m_Father: {fileID: 1147035994}
+  m_RootOrder: 0
+--- !u!1 &1147035992
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1147035994}
+  - 114: {fileID: 1147035993}
+  m_Layer: 0
+  m_Name: DumpsterController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1147035993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1147035992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2a28f6a4d67b4449b1371a72e6a792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveLeftKeyCode: 276
+  moveRightKeyCode: 275
+--- !u!4 &1147035994
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1147035992}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.50630975, y: 5.31120157, z: -.149516732}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1107338413}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &1368984473
 GameObject:
   m_ObjectHideFlags: 0
@@ -273,7 +313,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &1795521781
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +336,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1795521781}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb150562f0c0e5f4e92393d6c212085f, type: 3}
   m_Name: 
