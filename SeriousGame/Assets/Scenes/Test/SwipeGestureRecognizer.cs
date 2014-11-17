@@ -27,9 +27,6 @@ public class SwipeState
 }
 
 public class SwipeGestureRecognizer : MonoBehaviour {
-
-	//
-
 	
 	public GameObject swipeGestureUser;
 	public SwipeGestureType swipeType = SwipeGestureType.Both;
@@ -49,7 +46,6 @@ public class SwipeGestureRecognizer : MonoBehaviour {
 	private Vector3 _initialSwipeObjectPosition;
 
 	private bool _goBackToInitialPositionOnRelease = false;
-	private bool _mouseButtonIsDown = false;
 	private bool _isSwiping = false;
 
 	void Start ()
@@ -77,7 +73,6 @@ public class SwipeGestureRecognizer : MonoBehaviour {
 			if(Input.GetMouseButtonDown(0))
 			{
 				_swipingFingerStartPosition = _swipingFingerCurrentPosition;
-				_mouseButtonIsDown = true;
 			}
 			else
 			{
@@ -207,7 +202,6 @@ public class SwipeGestureRecognizer : MonoBehaviour {
 			swipeHorizontalDistance = (new Vector3(_swipingFingerCurrentPosition.x, 0, 0) - new Vector3(_swipingFingerStartPosition.x, 0, 0)).magnitude;
 			if (swipeHorizontalDistance > _minPixelWidthSwipe) 
 			{
-				
 				float swipeHorizontalValue = Mathf.Sign(_swipingFingerCurrentPosition.x - _swipingFingerStartPosition.x);
 				
 				if (swipeHorizontalValue > 0)//right swipe
@@ -222,7 +216,6 @@ public class SwipeGestureRecognizer : MonoBehaviour {
 					}	
 				}	
 			}
-
 		}
 
 
@@ -233,11 +226,7 @@ public class SwipeGestureRecognizer : MonoBehaviour {
 			swipeGestureUser.SendMessage("OnSwipePerformed",
 			                             new SwipeState(_swipingFingerStartPosition, _swipingFingerCurrentPosition, swipeDir),
 			                             SendMessageOptions.DontRequireReceiver);
-			if(swipeDir == SwipeDirection.None)
-			{
-				//_goBackToInitialPositionOnRelease = true;
-				StartCoroutine("GoBackToInitialPosition");
-			}
+			StartCoroutine("GoBackToInitialPosition");
 		}
 		else
 		{

@@ -81,10 +81,8 @@ public class ItemsCarouselScript : MonoBehaviour {
 
 	IEnumerator RotateCarousel()
 	{
-		var toto = 0.0f;
 		while (_rotationAmount <= _angleBetweenCarouselItems)
 		{
-			toto = toto + 1 * Time.deltaTime; 
 			this.transform.RotateAround(Vector3.zero,Vector3.up,_rotationDirection * _angleBetweenCarouselItems * carouselRotationSpeed * Time.deltaTime);
 			_rotationAmount = _rotationAmount + _angleBetweenCarouselItems * carouselRotationSpeed * Time.deltaTime;
 
@@ -100,10 +98,5 @@ public class ItemsCarouselScript : MonoBehaviour {
 		_isRotating = false;
 
 
-	}
-
-	public float GaussianFunction(float x, float sigma, float mu)
-	{
-		return ( 1 / (sigma * Mathf.Sqrt(2 * Mathf.PI) ) ) * Mathf.Exp( -1 / 2 * Mathf.Pow(( x - mu) / sigma, 2));
 	}
 }
