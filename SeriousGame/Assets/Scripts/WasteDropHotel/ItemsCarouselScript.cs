@@ -83,13 +83,13 @@ public class ItemsCarouselScript : MonoBehaviour {
 	{
 		while (_rotationAmount <= _angleBetweenCarouselItems)
 		{
-			this.transform.RotateAround(Vector3.zero,Vector3.up,_rotationDirection * _angleBetweenCarouselItems * carouselRotationSpeed * Time.deltaTime);
+			this.transform.RotateAround(this.transform.position, Vector3.up, _rotationDirection * _angleBetweenCarouselItems * carouselRotationSpeed * Time.deltaTime);
 			_rotationAmount = _rotationAmount + _angleBetweenCarouselItems * carouselRotationSpeed * Time.deltaTime;
 
 			yield return new WaitForSeconds(Time.deltaTime);
 			
 		}
-		this.transform.RotateAround(Vector3.zero,
+		this.transform.RotateAround(this.transform.position,
 		                            Vector3.up,
 		                            _rotationDirection * (_angleBetweenCarouselItems - _rotationAmount));
 		_rotationAmount = 0.0f;
