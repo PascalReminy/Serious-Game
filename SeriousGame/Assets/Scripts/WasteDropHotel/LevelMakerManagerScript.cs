@@ -26,6 +26,9 @@ public class LevelMakerManagerScript : MonoBehaviour {
 	void Start () {
 		hotel = new int[hotelHeight+4, hotelWidth];
 		_hotelGameObject = new GameObject("Hotel");
+		SwipeGestureRecognizer swipe = _hotelGameObject.AddComponent<SwipeGestureRecognizer>();
+		swipe.swipeType = SwipeGestureType.Vertical;
+		swipe.goBackToInitialPositionSpeed = 5;
 		GenerateRandomHotel();
 		InstantiateHotel();
 		Debug.Log(hotel);
@@ -74,7 +77,7 @@ public class LevelMakerManagerScript : MonoBehaviour {
 	{
 		for(int floor = 0; floor < hotel.GetLength(0); floor++)
 		{
-			var floorGameObject = new GameObject("floor"+floor);
+			var floorGameObject = new GameObject("floor"+(hotel.GetLength(0) - floor));
 			floorGameObject.transform.parent = _hotelGameObject.transform;
 
 			for(int block = 0; block < hotel.GetLength(1); block ++ )

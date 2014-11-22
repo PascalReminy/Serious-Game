@@ -6,8 +6,8 @@ public class DumpsterControllerScript : MonoBehaviour {
 	public KeyCode moveLeftKeyCode = KeyCode.LeftArrow;
 	public KeyCode moveRightKeyCode = KeyCode.RightArrow;
 
-	private bool _wantToMoveLeft = false;
-	private bool _wantToMoveRight = false;
+	public  bool _wantToMoveLeft = false;
+	public bool _wantToMoveRight = false;
 
 
 	// Use this for initialization
@@ -20,11 +20,13 @@ public class DumpsterControllerScript : MonoBehaviour {
 	
 		if(Input.GetKeyDown(moveLeftKeyCode) && !_wantToMoveLeft)
 		{
+			Debug.Log ("Left Arrow");
 			_wantToMoveLeft = true;
 		}
 
-		if(Input.GetKeyDown(moveLeftKeyCode) && !_wantToMoveRight)
+		if(Input.GetKeyDown(moveRightKeyCode) && !_wantToMoveRight)
 		{
+			Debug.Log ("Right Arrow");
 			_wantToMoveRight = true;
 		}
 
@@ -33,7 +35,7 @@ public class DumpsterControllerScript : MonoBehaviour {
 			_wantToMoveLeft = false;
 		}
 
-		if(Input.GetKeyUp(moveLeftKeyCode))
+		if(Input.GetKeyUp(moveRightKeyCode))
 		{
 			_wantToMoveRight = false;
 		}
@@ -52,7 +54,7 @@ public class DumpsterControllerScript : MonoBehaviour {
 		if(_wantToMoveRight)
 		{
 			var prevPos = this.transform.position;
-			this.transform.position = prevPos - Vector3.left;
+			this.transform.position = prevPos + Vector3.right;
 			_wantToMoveRight = false;
 		}
 	}
