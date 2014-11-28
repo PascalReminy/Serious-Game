@@ -7,6 +7,7 @@ public class MainScript : MonoBehaviour {
     private bool _bug;
     private string _cible;
     private GameObject Poubelle;
+    private GameObject currentPoint;
     private float plus = .7F;
     private float nextTime = 0.0F;
 
@@ -16,6 +17,7 @@ public class MainScript : MonoBehaviour {
     public GameObject Verre;
     public Transform[] target;
     public GameObject[] dechet;
+    public GameObject[] Point;
     public Material[] resultat = new Material [2];
     public GameObject _text;
 
@@ -95,6 +97,7 @@ public class MainScript : MonoBehaviour {
             if (hit.collider.tag == _cible && _bug)
             {
                 hit.collider.renderer.material = resultat[0];
+                Instantiate(Point[0], _exemple.position, _exemple.rotation);
                 _bug = false;
             }
             else
@@ -102,6 +105,7 @@ public class MainScript : MonoBehaviour {
                 if (hit.collider.tag == "verre" || hit.collider.tag == "plastique" || hit.collider.tag == "papier")
                 {
                     hit.collider.renderer.material = resultat[1];
+                    Instantiate(Point[1], _exemple.position, _exemple.rotation);
                     _bug = false;
                 }
             }

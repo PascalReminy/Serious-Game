@@ -317,6 +317,9 @@ MonoBehaviour:
   - {fileID: 100000, guid: 161082d88eccb8041a5cad008bfe7242, type: 2}
   - {fileID: 100000, guid: 5d258bc2f529e1b40a10cc16a5dab36a, type: 2}
   - {fileID: 100000, guid: c10fc8d4b6712e240954437ac7576717, type: 2}
+  Point:
+  - {fileID: 100000, guid: 08a5b0e108c8a6b4a82ffa6fed353415, type: 2}
+  - {fileID: 100000, guid: 899b1aaa5d88f3e46a7f58dfe9a12213, type: 2}
   resultat:
   - {fileID: 2100000, guid: 1dd91a556dfca3c4bac9ad2f30c918d4, type: 2}
   - {fileID: 2100000, guid: 8b8da3e4335da7444a0e5dc6a85c4907, type: 2}
@@ -417,6 +420,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1314048671}
+  - 95: {fileID: 1314048672}
   m_Layer: 0
   m_Name: Dumpster
   m_TagString: Untagged
@@ -435,6 +439,20 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+--- !u!95 &1314048672
+Animator:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1314048670}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ba76f70cc64fc8e4c8d0f4ba08f9608e, type: 2}
+  m_CullingMode: 0
+  m_ApplyRootMotion: 1
+  m_AnimatePhysics: 0
+  m_HasTransformHierarchy: 1
 --- !u!1 &1352675177
 GameObject:
   m_ObjectHideFlags: 0
