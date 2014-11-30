@@ -11,8 +11,8 @@ GameObject:
   - 33: {fileID: 3300000}
   - 64: {fileID: 6400000}
   - 23: {fileID: 2300000}
-  - 95: {fileID: 9500000}
   - 111: {fileID: 11100000}
+  - 114: {fileID: 11400000}
   m_Layer: 8
   m_Name: 'povitive point '
   m_TagString: verre
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: .707106829, y: 1.12005337e-15, z: -1.12005337e-15, w: .707106829}
-  m_LocalPosition: {x: 1.13084507, y: -5.51177883, z: -38.7658386}
+  m_LocalPosition: {x: 1.13084495, y: -5.51177883, z: -42.6198997}
   m_LocalScale: {x: .155278981, y: .155278981, z: .155278981}
   m_Children: []
   m_Father: {fileID: 0}
@@ -92,15 +92,28 @@ Animation:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 476bc015167aee441bf00650aa2a093d, type: 2}
+  m_Animation: {fileID: 7400000, guid: 5566794f60eea564abe7708c9961eaa1, type: 2}
   m_Animations:
-  - {fileID: 7400000, guid: 476bc015167aee441bf00650aa2a093d, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 7400000, guid: 5566794f60eea564abe7708c9961eaa1, type: 2}
   m_WrapMode: 0
-  m_PlayAutomatically: 0
+  m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7016f3f1227b0048aedf2f1e3dcbf78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

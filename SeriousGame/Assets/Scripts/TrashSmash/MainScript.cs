@@ -10,17 +10,21 @@ public class MainScript : MonoBehaviour {
     private GameObject currentPoint;
     private float plus = .7F;
     private float nextTime = 0.0F;
+    private bool paused = false;
+    
 
     public Transform _exemple;
     public GameObject Papier;
     public GameObject Plastique;
     public GameObject Verre;
+    public GameObject Info;
     public Transform[] target;
     public GameObject[] dechet;
     public GameObject[] Point;
     public Material[] resultat = new Material [2];
-    public GameObject _text;
+    public int score = 0;
 
+    InfoScript info;
 
     void Start()
     {
@@ -28,17 +32,17 @@ public class MainScript : MonoBehaviour {
         Destroy(Poubelle);
         Poubelle = Instantiate(Papier, _exemple.position, _exemple.rotation) as GameObject;
         Poubelle.layer = 9;
+        info = Info.GetComponent<InfoScript>();
     }
 
+    
 	// Update is called once per frame
 	void Update () 
     {
 
         if (Input.GetKeyDown(KeyCode.Space))
-        {
             _start = true;
-            _text.SetActive(false);
-        }
+
 
         if(_start)
         {
@@ -74,6 +78,14 @@ public class MainScript : MonoBehaviour {
 
             StartCoroutine("trash"); 
         }
+
+        if (info.timer <= 0)
+        {
+            paused = true;
+            OnApplicationPause(paused);
+            _start = false;
+            Debug.Log("fin");
+        }
     }
 
     void trash()
@@ -99,6 +111,7 @@ public class MainScript : MonoBehaviour {
                 hit.collider.renderer.material = resultat[0];
                 Instantiate(Point[0], _exemple.position, _exemple.rotation);
                 _bug = false;
+                score += 5;
             }
             else
             {
@@ -107,8 +120,14 @@ public class MainScript : MonoBehaviour {
                     hit.collider.renderer.material = resultat[1];
                     Instantiate(Point[1], _exemple.position, _exemple.rotation);
                     _bug = false;
+                    score -= 6;
                 }
             }
 
+    }
+
+    void OnApplicationPause(bool pauseStatus)
+    {
+        paused = pauseStatus;
     }
 }
