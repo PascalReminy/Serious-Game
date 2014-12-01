@@ -10,8 +10,6 @@ public class MainScript : MonoBehaviour {
     private GameObject currentPoint;
     private float plus = .7F;
     private float nextTime = 0.0F;
-    private bool paused = false;
-    
 
     public Transform _exemple;
     public GameObject Papier;
@@ -79,10 +77,9 @@ public class MainScript : MonoBehaviour {
             StartCoroutine("trash"); 
         }
 
-        if (info.timer <= 0)
+        if ((int)info.timer <= 0)
         {
-            paused = true;
-            OnApplicationPause(paused);
+            Pause();
             _start = false;
             Debug.Log("fin");
         }
@@ -126,8 +123,8 @@ public class MainScript : MonoBehaviour {
 
     }
 
-    void OnApplicationPause(bool pauseStatus)
+    void Pause()
     {
-        paused = pauseStatus;
+        Time.timeScale = 0.0f; 
     }
 }

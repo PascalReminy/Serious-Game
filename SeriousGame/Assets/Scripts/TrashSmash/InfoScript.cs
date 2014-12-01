@@ -30,11 +30,13 @@ public class InfoScript : MonoBehaviour {
             minutes = timer / 60;
             guiText.text = (int)minutes + " : " + (int)seconds;
 
+            
             if ((int)timer <= 0)
             {
                 flag = false;
+                guiText.text = "GameOver";
             }
         }
-	
+            
 	}
 }
