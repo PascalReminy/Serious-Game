@@ -1,9 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\..\Goshaba\CogniQuizz\Assets\Scripts\QuestionManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\WasteDropHotel\ItemsCarouselScript.cs">
     <Files>
-      <File FileName="..\..\..\..\Goshaba\CogniQuizz\Assets\Scripts\QuestionManager.cs" Line="211" Column="40" />
-      <File FileName="..\..\..\..\Goshaba\CogniQuizz\Assets\Scripts\LevelSelectionManager.cs" Line="22" Column="10" />
+      <File FileName="Assets\Scripts\WasteDropHotel\ItemsCarouselScript.cs" Line="86" Column="69" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
