@@ -282,7 +282,7 @@ GUIText:
   m_TabSize: 4
   m_Font: {fileID: 12800000, guid: c98460ce780aef540b540f463802fe09, type: 3}
   m_Material: {fileID: 0}
-  m_FontSize: 40
+  m_FontSize: 81
   m_FontStyle: 0
   m_Color:
     serializedVersion: 2
@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 435c5ff355ceb1e49afe461273e66698, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 20
+  timer: 90
   HUD: {fileID: 993456379}
   _originalRatio: 1.77777779
 --- !u!1 &888801287
