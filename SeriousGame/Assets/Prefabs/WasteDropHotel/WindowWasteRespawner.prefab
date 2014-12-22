@@ -185,14 +185,14 @@ MonoBehaviour:
   plasticDumpster: {fileID: 0}
   glassDumpster: {fileID: 0}
   paperWaste:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 189276, guid: 4d1767b0a3d8333459904c0182ae950e, type: 2}
+  - {fileID: 146662, guid: fc9617275c9068940a4f08445dd9fd3c, type: 2}
   plasticWaste:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 136148, guid: 2a322147ee07b6742a998445eb9e5aae, type: 2}
+  - {fileID: 112572, guid: d1d9841ed0a3fc74f829b87a4c2bdbf7, type: 2}
   glassWaste:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 185172, guid: e3108fdf4b233ea4ea2955e971fa2ebd, type: 2}
+  - {fileID: 172118, guid: 4080f1e200f911449857133c89770764, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
