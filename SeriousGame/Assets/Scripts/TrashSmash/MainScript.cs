@@ -10,7 +10,8 @@ public class MainScript : MonoBehaviour {
     private GameObject currentPoint;
     private float plus = .7F;
     private float nextTime = 0.0F;
-
+   
+    public GameObject DumpsterDisplayer;
     public Transform _exemple;
     public GameObject Papier;
     public GameObject Plastique;
@@ -27,10 +28,8 @@ public class MainScript : MonoBehaviour {
     void Start()
     {
         _cible = "papier";
-        Destroy(Poubelle);
-        Poubelle = Instantiate(Papier, _exemple.position, _exemple.rotation) as GameObject;
-        Poubelle.layer = 9;
         info = Info.GetComponent<InfoScript>();
+        DumpsterDisplayer.SendMessage("changeDumpsterSprite", _cible,SendMessageOptions.RequireReceiver);
     }
 
     
@@ -41,31 +40,24 @@ public class MainScript : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space))
             _start = true;
 
-
         if(_start)
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
                 _cible = "papier";
-                Destroy(Poubelle);
-                Poubelle = Instantiate(Papier, _exemple.position, _exemple.rotation) as GameObject;
-                Poubelle.layer = 9;
+                DumpsterDisplayer.SendMessage("changeDumpsterSprite", _cible, SendMessageOptions.RequireReceiver);
             }
 
             if (Input.GetKeyDown(KeyCode.X))
             {
                 _cible = "plastique";
-                Destroy(Poubelle);
-                Poubelle = Instantiate(Plastique, _exemple.position, _exemple.rotation) as GameObject;
-                Poubelle.layer = 9;
+                DumpsterDisplayer.SendMessage("changeDumpsterSprite", _cible, SendMessageOptions.RequireReceiver);
             }
 
             if (Input.GetKeyDown(KeyCode.C))
             {
                 _cible = "verre";
-                Destroy(Poubelle);
-                Poubelle = Instantiate(Verre, _exemple.position, _exemple.rotation) as GameObject;
-                Poubelle.layer = 9;
+                DumpsterDisplayer.SendMessage("changeDumpsterSprite", _cible, SendMessageOptions.RequireReceiver);
             }
 
             if (Input.GetButtonDown("Fire1"))

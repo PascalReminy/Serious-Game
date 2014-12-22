@@ -48,10 +48,12 @@
   <ItemGroup>
      <Compile Include="Assets\Scenes\Test\ObjectBehaviourOnSwipe.cs" />
      <Compile Include="Assets\Scenes\Test\SwipeGestureRecognizer.cs" />
+     <Compile Include="Assets\Scripts\TrashSmash\ChooseDumpsterScript.cs" />
      <Compile Include="Assets\Scripts\TrashSmash\DesactiveObj.cs" />
      <Compile Include="Assets\Scripts\TrashSmash\InfoScript.cs" />
      <Compile Include="Assets\Scripts\TrashSmash\MainScript.cs" />
      <Compile Include="Assets\Scripts\TrashSmash\ObjScript.cs" />
+     <Compile Include="Assets\Scripts\TrashSmash\PauseMenuScript.cs" />
      <Compile Include="Assets\Scripts\TrashSmash\pointScript.cs" />
      <Compile Include="Assets\Scripts\WasteDropHotel\DumpsterControllerScript.cs" />
      <Compile Include="Assets\Scripts\WasteDropHotel\FallingWasteScript.cs" />

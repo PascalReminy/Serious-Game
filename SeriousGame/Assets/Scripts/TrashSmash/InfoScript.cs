@@ -1,23 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class InfoScript : MonoBehaviour {
 
-    public float timer = 120.0f;
+   
     private float seconds;
     private float minutes;
     private bool flag = false;
-    public Camera HUD;
-    public float _originalRatio = 16f / 9f;
+    private Text Info;
+
+    public float timer = 120.0f;
 
 	// Use this for initialization
 	void Start () {
-        guiText.text = "Press Space";
-        this.transform.localPosition =
-            new Vector3(
-                this.transform.localPosition.x * HUD.aspect / _originalRatio,
-                this.transform.localPosition.y * HUD.aspect / _originalRatio,
-                this.transform.localPosition.z);
+        Info = this.gameObject.GetComponent<Text>();
+        Info.text = "Press Space";
+
 	}
 	
 	// Update is called once per frame
@@ -28,13 +27,13 @@ public class InfoScript : MonoBehaviour {
             timer -= Time.deltaTime;
             seconds = timer % 60;
             minutes = timer / 60;
-            guiText.text = (int)minutes + " : " + (int)seconds;
+            Info.text = (int)minutes + " : " + (int)seconds;
 
             
             if ((int)timer <= 0)
             {
                 flag = false;
-                guiText.text = "GameOver";
+                Info.text = "GameOver";
             }
         }
             
