@@ -13,25 +13,6 @@ public class ChooseDumpsterScript : MonoBehaviour {
         DumpsterImage = this.GetComponent<Image>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-        /*
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            DumpsterImage.sprite = Dumpsters[0];
-        }
-
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            DumpsterImage.sprite = Dumpsters[1];
-        }
-
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            DumpsterImage.sprite = Dumpsters[2];
-        }*/
-	
-	}
 
     void changeDumpsterSprite (string type)
     {

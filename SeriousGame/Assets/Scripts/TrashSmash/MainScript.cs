@@ -10,18 +10,20 @@ public class MainScript : MonoBehaviour {
     private GameObject currentPoint;
     private float plus = .7F;
     private float nextTime = 0.0F;
+    private bool isActive = false;
    
     public GameObject DumpsterDisplayer;
-    public Transform _exemple;
+    public GameObject PauseMenu;
+    public GameObject Score;
     public GameObject Papier;
     public GameObject Plastique;
     public GameObject Verre;
     public GameObject Info;
-    public Transform[] target;
     public GameObject[] dechet;
-    public GameObject[] Point;
+    public Transform _exemple;
+    public Transform[] target;
     public Material[] resultat = new Material [2];
-    public int score = 0;
+    public float point = 0;
 
     InfoScript info;
 
@@ -30,6 +32,7 @@ public class MainScript : MonoBehaviour {
         _cible = "papier";
         info = Info.GetComponent<InfoScript>();
         DumpsterDisplayer.SendMessage("changeDumpsterSprite", _cible,SendMessageOptions.RequireReceiver);
+        Time.timeScale = 1.0f;
     }
 
     
@@ -39,6 +42,12 @@ public class MainScript : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Space))
             _start = true;
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseMenu.SendMessage("PressEscape", isActive, SendMessageOptions.RequireReceiver);
+            Pause();
+            isActive = !isActive;   
+        }
 
         if(_start)
         {
@@ -73,7 +82,7 @@ public class MainScript : MonoBehaviour {
         {
             Pause();
             _start = false;
-            Debug.Log("fin");
+           
         }
     }
 
@@ -98,18 +107,18 @@ public class MainScript : MonoBehaviour {
             if (hit.collider.tag == _cible && _bug)
             {
                 hit.collider.renderer.material = resultat[0];
-                Instantiate(Point[0], _exemple.position, _exemple.rotation);
                 _bug = false;
-                score += 5;
+                point += 100;
+                Score.SendMessage("SeeScore", point, SendMessageOptions.RequireReceiver);
             }
             else
             {
                 if (hit.collider.tag == "verre" || hit.collider.tag == "plastique" || hit.collider.tag == "papier")
                 {
                     hit.collider.renderer.material = resultat[1];
-                    Instantiate(Point[1], _exemple.position, _exemple.rotation);
                     _bug = false;
-                    score -= 6;
+                    point -= 150;
+                    Score.SendMessage("SeeScore", point, SendMessageOptions.RequireReceiver);
                 }
             }
 
@@ -117,6 +126,12 @@ public class MainScript : MonoBehaviour {
 
     void Pause()
     {
-        Time.timeScale = 0.0f; 
+        Time.timeScale = 1.0f;
+        if (!isActive)
+        {
+            if (_start)
+                _start = isActive;
+           Time.timeScale = 0.0f;
+        }
     }
 }
