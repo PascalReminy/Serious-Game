@@ -1,10 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\WasteDropHotel\WasteRespawnScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\WasteDropHotel\LevelMakerManagerScript.cs">
     <Files>
-      <File FileName="Assets\Scripts\WasteDropHotel\WasteRespawnScript.cs" Line="23" Column="2" />
-      <File FileName="Assets\Scenes\Test\SwipeGestureRecognizer.cs" Line="6" Column="27" />
-      <File FileName="Assets\Scripts\WasteDropHotel\DumpsterControllerScript.cs" Line="10" Column="24" />
+      <File FileName="Assets\Scripts\WasteDropHotel\WasteRespawnScript.cs" Line="26" Column="71" />
+      <File FileName="Assets\Scripts\WasteDropHotel\LevelMakerManagerScript.cs" Line="179" Column="7" />
+      <File FileName="Assets\Scripts\WasteDropHotel\GameController.cs" Line="18" Column="43" />
+      <File FileName="Assets\Scripts\WasteDropHotel\DumpsterControllerScript.cs" Line="16" Column="3" />
+      <File FileName="Assets\Scripts\WasteDropHotel\FallingWasteScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

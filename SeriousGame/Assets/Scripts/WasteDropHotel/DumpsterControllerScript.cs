@@ -58,4 +58,9 @@ public class DumpsterControllerScript : MonoBehaviour {
 			_wantToMoveRight = false;
 		}
 	}
+
+	void OnCollisionEnter(Collision col)
+	{
+		Debug.Log(col.gameObject.tag);
+	}
 }
