@@ -16,7 +16,6 @@ public class InfoScript : MonoBehaviour {
 	void Start () {
         Info = this.gameObject.GetComponent<Text>();
         Info.text = "Press Space";
-
 	}
 	
 	// Update is called once per frame

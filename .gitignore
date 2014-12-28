@@ -15,9 +15,5 @@
 sysinfo.txt
 *.sln
 *.csproj
-*.csproj
 *.sln
-*.csproj
-*.sln
-*.sln
-*.sln
+*.db.meta
