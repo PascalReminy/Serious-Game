@@ -10,11 +10,15 @@ public class MainScript : MonoBehaviour {
     private GameObject currentPoint;
     private float plus = .7F;
     private float nextTime = 0.0F;
+    private bool isPaused = false;
     private bool isActive = false;
    
     public GameObject DumpsterDisplayer;
     public GameObject PauseMenu;
     public GameObject Score;
+    public GameObject Hit_P;
+    public GameObject Hit_Pp;
+    public GameObject Hit_V;
     public GameObject Papier;
     public GameObject Plastique;
     public GameObject Verre;
@@ -41,15 +45,19 @@ public class MainScript : MonoBehaviour {
     {
 
         if (Input.GetKeyDown(KeyCode.Space))
+        {
             _start = true;
+            isPaused = true;
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             PauseMenu.SendMessage("PressEscape", isActive, SendMessageOptions.RequireReceiver);
             Pause();
-            isActive = !isActive;   
+            isActive = !isActive;
+            isPaused = !isActive;
         }
 
-        if(_start)
+        if (_start && isPaused)
         {
             if (Input.GetKeyDown(KeyCode.W))
             {
@@ -81,7 +89,7 @@ public class MainScript : MonoBehaviour {
         if ((int)info.timer <= 0)
         {
             Pause();
-            _start = false;
+            isPaused = false;
            
         }
     }
@@ -110,6 +118,7 @@ public class MainScript : MonoBehaviour {
                 _bug = false;
                 point += 100;
                 Score.SendMessage("SeeScore", point, SendMessageOptions.RequireReceiver);
+                Hitchoose();
             }
             else
             {
@@ -129,9 +138,19 @@ public class MainScript : MonoBehaviour {
         Time.timeScale = 1.0f;
         if (!isActive)
         {
-            if (_start)
-                _start = isActive;
+            if (isPaused)
+                isPaused = isActive;
            Time.timeScale = 0.0f;
         }
+    }
+
+    void Hitchoose()
+    {
+        if(_cible == "verre")
+            Hit_V.SendMessage("SeeHit", _cible, SendMessageOptions.RequireReceiver);
+        if(_cible == "papier")
+            Hit_Pp.SendMessage("SeeHit", _cible, SendMessageOptions.RequireReceiver);
+        if(_cible == "plastique")
+            Hit_P.SendMessage("SeeHit", _cible, SendMessageOptions.RequireReceiver);
     }
 }

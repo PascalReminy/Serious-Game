@@ -15,6 +15,6 @@ public class ScoreScript : MonoBehaviour {
 
     void SeeScore(float score)
     {
-        Score.text = "score :" + "\n " + score;
+        Score.text = "score : " + score;
     }
 }

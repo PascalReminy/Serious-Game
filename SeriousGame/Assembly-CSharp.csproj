@@ -48,8 +48,10 @@
   <ItemGroup>
      <Compile Include="Assets\Scenes\Test\ObjectBehaviourOnSwipe.cs" />
      <Compile Include="Assets\Scenes\Test\SwipeGestureRecognizer.cs" />
+     <Compile Include="Assets\Scripts\TrashSmash\BontonManagerScript.cs" />
      <Compile Include="Assets\Scripts\TrashSmash\ChooseDumpsterScript.cs" />
      <Compile Include="Assets\Scripts\TrashSmash\DesactiveObj.cs" />
+     <Compile Include="Assets\Scripts\TrashSmash\HitScript.cs" />
      <Compile Include="Assets\Scripts\TrashSmash\InfoScript.cs" />
      <Compile Include="Assets\Scripts\TrashSmash\MainScript.cs" />
      <Compile Include="Assets\Scripts\TrashSmash\ObjScript.cs" />
