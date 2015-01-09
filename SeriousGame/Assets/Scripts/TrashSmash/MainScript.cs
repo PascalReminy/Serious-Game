@@ -12,12 +12,10 @@ public class MainScript : MonoBehaviour {
     private float nextTime = 0.0F;
     private bool isPaused = false;
     private bool isActive = false;
-    private bool gameOver = false;
    
     public GameObject DumpsterDisplayer;
     public GameObject PauseMenu;
     public GameObject Score;
-    public GameObject limite;
     public GameObject Hit_P;
     public GameObject Hit_Pp;
     public GameObject Hit_V;
@@ -30,8 +28,6 @@ public class MainScript : MonoBehaviour {
     public Transform[] target;
     public Material[] resultat = new Material [2];
     public float point = 0;
-
-    Vector3 limitBorn = new Vector3(0.0f, 1.0f, 0.0f);
 
     InfoScript info;
 
@@ -47,8 +43,6 @@ public class MainScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
-        if (limite.transform.position.y > 3.0f)
-            gameOver = true;
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -92,10 +86,11 @@ public class MainScript : MonoBehaviour {
             StartCoroutine("trash"); 
         }
 
-        if ((int)info.timer <= 0 || gameOver)
+        if ((int)info.timer <= 0)
         {
             Pause();
             isPaused = false;
+           
         }
     }
 
@@ -117,12 +112,12 @@ public class MainScript : MonoBehaviour {
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit))
-        {
             if (hit.collider.tag == _cible && _bug)
             {
                 hit.collider.renderer.material = resultat[0];
+                _bug = false;
                 point += 100;
-                HitGeneralEffect(hit);
+                Score.SendMessage("SeeScore", point, SendMessageOptions.RequireReceiver);
                 Hitchoose();
             }
             else
@@ -130,12 +125,11 @@ public class MainScript : MonoBehaviour {
                 if (hit.collider.tag == "verre" || hit.collider.tag == "plastique" || hit.collider.tag == "papier")
                 {
                     hit.collider.renderer.material = resultat[1];
+                    _bug = false;
                     point -= 150;
-                    limite.transform.position += limitBorn;
-                    HitGeneralEffect(hit);
+                    Score.SendMessage("SeeScore", point, SendMessageOptions.RequireReceiver);
                 }
             }
-        }
 
     }
 
@@ -150,12 +144,6 @@ public class MainScript : MonoBehaviour {
         }
     }
 
-    void HitGeneralEffect(RaycastHit hit)
-    {
-        hit.collider.enabled = false;
-        _bug = false;
-        Score.SendMessage("SeeScore", point, SendMessageOptions.RequireReceiver);
-    }
     void Hitchoose()
     {
         if(_cible == "verre")
