@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum WasteType {Plastic, Glass, Paper}
+public enum WasteType {Plastic, Glass, Paper};
 
 public class FallingWasteScript : MonoBehaviour {
 

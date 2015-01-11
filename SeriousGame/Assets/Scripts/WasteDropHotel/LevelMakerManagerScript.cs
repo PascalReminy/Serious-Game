@@ -25,6 +25,17 @@ public class LevelMakerManagerScript : MonoBehaviour {
 	public List<GameObject> _wasteRespawnerList =  new List<GameObject>();
 
 	private bool _dropWaste = true;
+	private float _blockScale = 2.0f;
+
+	private GameStateWasteDropHotel GS;
+
+	void Awake()
+	{
+		GS = GameStateWasteDropHotel.Instance;
+		this._blockScale = GS.HotelScale;
+
+	}
+
 	// Use this for initialization
 	void Start () {
 		hotel = new int[hotelHeight, hotelWidth];
@@ -111,15 +122,14 @@ public class LevelMakerManagerScript : MonoBehaviour {
 
 			for(int block = 0; block < hotelWidth; block ++ )
 			{
-				float blockScale = 2.0f;
-				var pos = new Vector3( block - hotelWidth/2 , floor) * blockScale;
+				var pos = new Vector3( block - hotelWidth/2 , floor) * _blockScale;
 				if(hotel[floor, block] == 0 || hotel[floor, block] == 1)	//Brick Wall
 				{
 					var wall = Instantiate(wallPrefab, pos, wallPrefab.transform.rotation) as GameObject;
 					var wallScript = wall.GetComponent<ChangeWallMaterialScript>();
 
 					wall.name = "block"+block;
-					wall.transform.localScale = new Vector3(blockScale, blockScale, blockScale);
+					wall.transform.localScale = new Vector3(_blockScale, _blockScale, _blockScale);
 					wall.transform.parent = floorGameObject.transform;
 
 					if(floor > 1)//BrickWall
@@ -148,7 +158,7 @@ public class LevelMakerManagerScript : MonoBehaviour {
 					{
 						var blockGameObject = Instantiate(windowWasteRespawnerPrefab, pos + new Vector3(0, 0, -1), Quaternion.identity) as GameObject;
 						blockGameObject.name = "block"+block;
-						blockGameObject.transform.localScale = new Vector3(blockScale, blockScale, blockScale)*0.75f;
+						blockGameObject.transform.localScale = new Vector3(_blockScale, _blockScale, _blockScale)*0.75f;
 						blockGameObject.transform.parent = floorGameObject.transform;
 						this._wasteRespawnerList.Add(blockGameObject);
 					}
@@ -161,7 +171,7 @@ public class LevelMakerManagerScript : MonoBehaviour {
 						{
 							var blockGameObject = Instantiate(hotelDoorPrefab, pos, Quaternion.identity) as GameObject;
 							blockGameObject.name = "block"+block;
-							blockGameObject.transform.localScale = new Vector3(blockScale, blockScale, blockScale);
+							blockGameObject.transform.localScale = new Vector3(_blockScale, _blockScale, _blockScale);
 							blockGameObject.transform.parent = floorGameObject.transform;
 						}
 						else
@@ -170,7 +180,7 @@ public class LevelMakerManagerScript : MonoBehaviour {
 							{
 								var blockGameObject = Instantiate(hotelFacadePrefab, pos, Quaternion.identity) as GameObject;
 								blockGameObject.name = "block"+block;
-								blockGameObject.transform.localScale = new Vector3(blockScale, blockScale, blockScale);
+								blockGameObject.transform.localScale = new Vector3(_blockScale, _blockScale, _blockScale);
 								blockGameObject.transform.parent = floorGameObject.transform;
 							}
 						}

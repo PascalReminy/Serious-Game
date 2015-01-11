@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\WasteDropHotel\DumpsterControllerScript.cs" />
      <Compile Include="Assets\Scripts\WasteDropHotel\FallingWasteScript.cs" />
      <Compile Include="Assets\Scripts\WasteDropHotel\GameController.cs" />
+     <Compile Include="Assets\Scripts\WasteDropHotel\GameStateWasteDropHotel.cs" />
      <Compile Include="Assets\Scripts\WasteDropHotel\ItemsCarouselScript.cs" />
      <Compile Include="Assets\Scripts\WasteDropHotel\LevelMakerManagerScript.cs" />
      <Compile Include="Assets\Scripts\WasteDropHotel\WasteRespawnScript.cs" />
