@@ -17,10 +17,10 @@ public class MainScript : MonoBehaviour {
     public GameObject DumpsterDisplayer;
     public GameObject PauseMenu;
     public GameObject Score;
+    public GameObject Resultat;
+    public GameObject TestResultat;
     public GameObject limite;
-    public GameObject Hit_P;
-    public GameObject Hit_Pp;
-    public GameObject Hit_V;
+    public GameObject HitTrash;
     public GameObject Papier;
     public GameObject Plastique;
     public GameObject Verre;
@@ -47,7 +47,7 @@ public class MainScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
-        if (limite.transform.position.y > 3.0f)
+        if (limite.transform.position.y > 0.20f)
             gameOver = true;
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -94,8 +94,11 @@ public class MainScript : MonoBehaviour {
 
         if ((int)info.timer <= 0 || gameOver)
         {
+            Resultat.SetActive(true);
             Pause();
             isPaused = false;
+            HitTrash.SendMessage("SetNumberOfRecycledWastes", SendMessageOptions.RequireReceiver);
+            TestResultat.SendMessage("SeeScore", point, SendMessageOptions.RequireReceiver);
         }
     }
 
@@ -158,11 +161,6 @@ public class MainScript : MonoBehaviour {
     }
     void Hitchoose()
     {
-        if(_cible == "verre")
-            Hit_V.SendMessage("SeeHit", _cible, SendMessageOptions.RequireReceiver);
-        if(_cible == "papier")
-            Hit_Pp.SendMessage("SeeHit", _cible, SendMessageOptions.RequireReceiver);
-        if(_cible == "plastique")
-            Hit_P.SendMessage("SeeHit", _cible, SendMessageOptions.RequireReceiver);
+        HitTrash.SendMessage("SeeHit", _cible, SendMessageOptions.RequireReceiver);
     }
 }
