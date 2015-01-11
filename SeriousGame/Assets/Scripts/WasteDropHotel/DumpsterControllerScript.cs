@@ -12,11 +12,11 @@ public class DumpsterControllerScript : MonoBehaviour {
 	public KeyCode glassDumpsterKeyCode = KeyCode.C;
 
 
-	public  bool _wantToMoveLeft = false;
-	public bool _wantToMoveRight = false;
-	public GameObject _paperDumpster;
-	public GameObject _plasticDumpster;
-	public GameObject _glassDumpster;
+	private  bool _wantToMoveLeft = false;
+	private bool _wantToMoveRight = false;
+	private GameObject _paperDumpster;
+	private GameObject _plasticDumpster;
+	private GameObject _glassDumpster;
 
 	private float _moveAmount;
 	private GameStateWasteDropHotel GS;
