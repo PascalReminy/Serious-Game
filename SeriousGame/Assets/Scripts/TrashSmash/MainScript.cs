@@ -18,7 +18,6 @@ public class MainScript : MonoBehaviour {
     public GameObject PauseMenu;
     public GameObject Score;
     public GameObject Resultat;
-    public GameObject TestResultat;
     public GameObject limite;
     public GameObject HitTrash;
     public GameObject Papier;
@@ -98,7 +97,7 @@ public class MainScript : MonoBehaviour {
             Pause();
             isPaused = false;
             HitTrash.SendMessage("SetNumberOfRecycledWastes", SendMessageOptions.RequireReceiver);
-            TestResultat.SendMessage("SeeScore", point, SendMessageOptions.RequireReceiver);
+            Resultat.SendMessage("SeeScore", point, SendMessageOptions.RequireReceiver);
         }
     }
 
