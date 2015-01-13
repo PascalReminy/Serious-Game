@@ -12,7 +12,6 @@ public class ChangeWallMaterialScript : MonoBehaviour {
 	public Material leftBrickWallMaterial;
 	public Material rightBrickWallMaterial;
 
-	private WallType _wallType = WallType.Wall;
 	// Use this for initialization
 	void Start ()
 	{

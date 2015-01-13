@@ -12,6 +12,7 @@ GameObject:
   - 65: {fileID: 6512572}
   - 23: {fileID: 2312572}
   - 114: {fileID: 11463112}
+  - 54: {fileID: 5444614}
   m_Layer: 0
   m_Name: PlasticBottle
   m_TagString: Plastic
@@ -58,6 +59,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 112572}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &5444614
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 112572}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &6512572
 BoxCollider:
   m_ObjectHideFlags: 1

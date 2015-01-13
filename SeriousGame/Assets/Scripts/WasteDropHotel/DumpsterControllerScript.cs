@@ -2,6 +2,7 @@
 using System.Collections;
 
 //public enum WasteType { Plastic, Paper, Glass};
+using UnityEngine.UI;
 
 public class DumpsterControllerScript : MonoBehaviour {
 
@@ -10,7 +11,9 @@ public class DumpsterControllerScript : MonoBehaviour {
 	public KeyCode paperDumpsterKeyCode = KeyCode.W;
 	public KeyCode plasticDumpsterKeyCode = KeyCode.X;
 	public KeyCode glassDumpsterKeyCode = KeyCode.C;
-
+	public RectTransform recyclingScore;
+	public Color goodRecyclingColor = Color.green;
+	public Color wrongRecyclingColor = Color.red;
 
 	private  bool _wantToMoveLeft = false;
 	private bool _wantToMoveRight = false;
@@ -22,15 +25,29 @@ public class DumpsterControllerScript : MonoBehaviour {
 	private GameStateWasteDropHotel GS;
 	private WasteType targetWaste = WasteType.Paper;
 
+	private Text _recyclingScoreText;
+	private Animator _recyclingScoreAnimator;
+	private int _goodRecyclingScore;
+	private int _wrongRecyclingScore;
+
+
 
 	void Awake()
 	{
 		GS = GameStateWasteDropHotel.Instance;
 		_moveAmount = GS.HotelScale;
+		_goodRecyclingScore = GS.GoodRecyclingScore;
+		_wrongRecyclingScore = GS.WrongRecyclingScore;
+
+
 	}
 
 	// Use this for initialization
 	void Start () {
+
+		this._recyclingScoreText = recyclingScore.GetComponentInChildren<Text>();
+		this._recyclingScoreAnimator = recyclingScore.GetComponentInChildren<Animator>();
+
 		Transform[] tranDumps = this.GetComponentsInChildren<Transform>();
 		foreach(Transform t in tranDumps)
 		{
@@ -131,8 +148,45 @@ public class DumpsterControllerScript : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col)
 	{
-		Debug.Log("Collid");
-		Debug.Log(col.tag);
+		//check if the waste match the dumpster
+		if(col.tag == targetWaste.ToString())
+		{
+			Debug.Log("good");
+			this._recyclingScoreText.text = "+"+(_goodRecyclingScore);
+			this._recyclingScoreText.color = goodRecyclingColor;
+			this._recyclingScoreAnimator.SetBool("isHidden", false);
+			StartCoroutine("WaitEndOfScoreAnimation");
+
+
+			if(targetWaste == WasteType.Glass)
+			{
+				GS.NumberOfRecycledGlassWaste++;
+			}
+			else if(targetWaste == WasteType.Paper)
+			{
+				GS.NumberOfRecycledPaperWaste++;
+			}
+			else if(targetWaste == WasteType.Plastic)
+			{
+				GS.NumberOfRecycledPlasticWaste++;
+			}
+		}
+		else
+		{
+			this._recyclingScoreText.text = ""+(_wrongRecyclingScore);
+			this._recyclingScoreText.color = wrongRecyclingColor;
+			this._recyclingScoreAnimator.SetBool("isHidden", false);
+			StartCoroutine("WaitEndOfScoreAnimation");
+		}
+
+		//destroy the waste
 		Destroy(col.gameObject);
+	}
+
+	IEnumerator WaitEndOfScoreAnimation()
+	{
+		yield return new WaitForEndOfFrame();
+		this._recyclingScoreAnimator.SetBool("isHidden", true);
+
 	}
 }

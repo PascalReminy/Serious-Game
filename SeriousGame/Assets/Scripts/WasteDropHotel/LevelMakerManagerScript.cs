@@ -22,9 +22,7 @@ public class LevelMakerManagerScript : MonoBehaviour {
 	public int[,] hotel;
 
 	private GameObject _hotelGameObject;
-	public List<GameObject> _wasteRespawnerList =  new List<GameObject>();
 
-	private bool _dropWaste = true;
 	private float _blockScale = 2.0f;
 
 	private GameStateWasteDropHotel GS;
@@ -40,40 +38,15 @@ public class LevelMakerManagerScript : MonoBehaviour {
 	void Start () {
 		hotel = new int[hotelHeight, hotelWidth];
 		_hotelGameObject = new GameObject("Hotel");
-		/*SwipeGestureRecognizer swipe = _hotelGameObject.AddComponent<SwipeGestureRecognizer>();
-		swipe.swipeType = SwipeGestureType.Vertical;
-		swipe.goBackToInitialPositionSpeed = 5;*/
 		GenerateRandomHotel();
 		InstantiateHotel();
-
-
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if(Input.GetKeyDown(KeyCode.Space) && _dropWaste)
-		{
-			_dropWaste = false;
-			foreach(GameObject respawner in this._wasteRespawnerList)
-			{
-				if(Random.Range(0,2) == 1)
-					respawner.SendMessage("DropWaste",SendMessageOptions.RequireReceiver);
-			}
-		}
-
-		if(Input.GetKeyUp(KeyCode.Space))
-		{
-			_dropWaste = true;
-		}
 	}
-
-	public List<GameObject> GetRaspawnerList()
-	{
-		return new List<GameObject>(this._wasteRespawnerList);
-	}
-
 
 	public void GenerateRandomHotel()
 	{
@@ -160,7 +133,7 @@ public class LevelMakerManagerScript : MonoBehaviour {
 						blockGameObject.name = "block"+block;
 						blockGameObject.transform.localScale = new Vector3(_blockScale, _blockScale, _blockScale)*0.75f;
 						blockGameObject.transform.parent = floorGameObject.transform;
-						this._wasteRespawnerList.Add(blockGameObject);
+						GS.WastesRespawnerList.Add(blockGameObject);
 					}
 				}
 				else

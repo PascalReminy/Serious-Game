@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameStateWasteDropHotel{
 
@@ -19,6 +20,30 @@ public class GameStateWasteDropHotel{
 
 	}
 
+	private bool _gameIsStarted;
+
+	public bool GameIsStarted {
+		get {
+			return _gameIsStarted;
+		}
+		set {
+			_gameIsStarted = value;
+		}
+	}
+
+	private bool _gameIsPaused;
+
+	public bool GameIsPaused {
+		get {
+			if(!_gameIsStarted)
+				_gameIsPaused = false;
+			return _gameIsPaused;
+		}
+		set {
+			_gameIsPaused = value;
+		}
+	}
+
 	private float _hotelScale = 2.0f;
 
 	public float HotelScale {
@@ -30,4 +55,69 @@ public class GameStateWasteDropHotel{
 		}
 	}
 
+	private int _goodRecyclingScore = 100;
+
+	public int GoodRecyclingScore {
+		get {
+			return _goodRecyclingScore;
+		}
+		set {
+			_goodRecyclingScore = value;
+		}
+	}
+
+	private int _wrongRecyclingScore = -150;
+
+	public int WrongRecyclingScore {
+		get {
+			return _wrongRecyclingScore;
+		}
+		set {
+			_wrongRecyclingScore = value;
+		}
+	}
+
+	private int _numberOfRecycledGlassWaste = 0;
+
+	public int NumberOfRecycledGlassWaste {
+		get {
+			return _numberOfRecycledGlassWaste;
+		}
+		set {
+			_numberOfRecycledGlassWaste = value;
+		}
+	}
+
+	private int _numberOfRecycledPaperWaste = 0;
+
+	public int NumberOfRecycledPaperWaste {
+		get {
+			return _numberOfRecycledPaperWaste;
+		}
+		set {
+			_numberOfRecycledPaperWaste = value;
+		}
+	}
+
+	private int _numberOfRecycledPlasticWaste = 0;
+
+	public int NumberOfRecycledPlasticWaste {
+		get {
+			return _numberOfRecycledPlasticWaste;
+		}
+		set {
+			_numberOfRecycledPlasticWaste = value;
+		}
+	}
+
+	private List<GameObject> _wastesRespawnerList = new List<GameObject>();
+
+	public List<GameObject> WastesRespawnerList {
+		get {
+			return _wastesRespawnerList;
+		}
+		set {
+			_wastesRespawnerList = value;
+		}
+	}
 }
