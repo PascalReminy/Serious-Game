@@ -4,37 +4,36 @@ using UnityEngine.UI;
 
 public class ResultatScript : MonoBehaviour {
 
-    private Text Resultat;
-
-
+    public Image MedalImage; 
     public int ScoreGold, ScoreSilver, ScoreBronze = 0;
     public Text ResultatScore;
+    public Sprite[] Medal = new Sprite[3];
+    
 
 
-
-    void Awake()
-    {
-        Resultat = this.gameObject.GetComponent<Text>();
-    }
 
     void SeeScore(float score)
     {
 
         if (score > ScoreGold)
         {
-            Resultat.text = "Tu a bien nettoyer \n Voila ton score :" + score + " \n";
+            ResultatScore.text = "Incroyable Tu es vraimant tres fort !!!  \n\n Voila ton score : " + score + "!!! \n";
+            MedalImage.sprite = Medal[0];
         }
         else if (score > ScoreSilver)
         {
-            Resultat.text = "Tu a bien nettoyer \n Voila ton score :" + score + " \n";
+            ResultatScore.text = "Quelle vitesse felicitation ! \n\n Voila ton score : " + score + "!! \n";
+            MedalImage.sprite = Medal[1];
         }
         else if (score > ScoreBronze)
         {
-            Resultat.text = "Tu a bien nettoyer \n Voila ton score :" + score + " \n";
+            ResultatScore.text = "Pas mal du tout : " + score + " \n";
+            MedalImage.sprite = Medal[2];
         }
         else
         {
-            Resultat.text = "Tu a bien nettoyer \n Voila ton score :" + score + " \n";
+            ResultatScore.text = "Tu peux mieux faire \n Voila ton score :" + score + " \n";
+            MedalImage.gameObject.SetActive(false);
         }
 
     }
