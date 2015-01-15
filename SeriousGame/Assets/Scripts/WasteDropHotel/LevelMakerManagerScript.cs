@@ -16,27 +16,29 @@ public class LevelMakerManagerScript : MonoBehaviour {
 	public GameObject windowWasteRespawnerPrefab;
 	public GameObject hotelFacadePrefab;
 	public GameObject hotelDoorPrefab;
-	public LevelDifficulty difficulty;
-	public int hotelWidth = 5;
-	public int hotelHeight = 8;
+	//public LevelDifficulty difficulty;
+
 	public int[,] hotel;
 
 	private GameObject _hotelGameObject;
 
-	private float _blockScale = 2.0f;
+	private float _flatScale = 2.0f;
+	public int _hotelWidth;
+	public int _hotelHeight;
 
 	private GameStateWasteDropHotel GS;
 
 	void Awake()
 	{
 		GS = GameStateWasteDropHotel.Instance;
-		this._blockScale = GS.HotelScale;
-
+		this._flatScale = GS.HotelScale;
+		this._hotelHeight = GS.HotelHeight;
+		this._hotelWidth = GS.HotelWidth;
 	}
 
 	// Use this for initialization
 	void Start () {
-		hotel = new int[hotelHeight, hotelWidth];
+		hotel = new int[_hotelHeight, _hotelWidth];
 		_hotelGameObject = new GameObject("Hotel");
 		GenerateRandomHotel();
 		InstantiateHotel();
@@ -50,37 +52,32 @@ public class LevelMakerManagerScript : MonoBehaviour {
 
 	public void GenerateRandomHotel()
 	{
-		for(int floor = hotelHeight-1; floor >= 0; floor--)
+		for(int floor = 0; floor < _hotelHeight; floor++)
 		{
 			var str = "";
-			for(int block = 0; block < hotelWidth; block ++ )
+			for(int flat = 0; flat < _hotelWidth; flat ++ )
 			{
-				if(floor > 1 && floor < hotelHeight-1)
+
+				hotel[floor, flat] = 1;
+				//the bottom of the hotel
+				if(floor < 2)
 				{
-					//middle of hotel, playground area
-					hotel[floor, block] = Random.Range(1,2);
-				}
-				else
-				{
-					hotel[floor, block] = 1;
-					//the top and the bottom of the hotel
-					if(floor < 2)
+					//add the door in the middle of the hotel
+					//manage pair and impair width
+					if((_hotelWidth%2 == 1) && flat == _hotelWidth/2)
 					{
-						//the door
-						if((hotelWidth%2 == 1) && block == hotelWidth/2)
+						hotel[floor, flat] = 2;
+					}
+					else
+					{
+						if((_hotelWidth%2 == 0) && (flat == (_hotelWidth-1)/2 || flat == (_hotelWidth-1)/2+1))
 						{
-							hotel[floor, block] = 2;
-						}
-						else
-						{
-							if((hotelWidth%2 == 0) && (block == (hotelWidth-1)/2 || block == (hotelWidth-1)/2+1))
-							{
-								hotel[floor, block] = 2;
-							}
+							hotel[floor, flat] = 2;
 						}
 					}
 				}
-				str += hotel[floor, block]+", ";
+
+				str += hotel[floor, flat]+", ";
 			}
 			//Debug.Log(str);
 		}
@@ -88,28 +85,28 @@ public class LevelMakerManagerScript : MonoBehaviour {
 
 	public void InstantiateHotel()
 	{
-		for(int floor = 0; floor < hotelHeight; floor++)
+		for(int floor = 0; floor < _hotelHeight; floor++)
 		{
 			var floorGameObject = new GameObject("floor"+floor);
 			floorGameObject.transform.parent = _hotelGameObject.transform;
 
-			for(int block = 0; block < hotelWidth; block ++ )
+			for(int flat = 0; flat < _hotelWidth; flat ++ )
 			{
-				var pos = new Vector3( block - hotelWidth/2 , floor) * _blockScale;
-				if(hotel[floor, block] == 0 || hotel[floor, block] == 1)	//Brick Wall
+				var pos = new Vector3( flat - _hotelWidth/2 , floor) * _flatScale;
+				if(hotel[floor, flat] == 0 || hotel[floor, flat] == 1)	//Brick Wall
 				{
 					var wall = Instantiate(wallPrefab, pos, wallPrefab.transform.rotation) as GameObject;
 					var wallScript = wall.GetComponent<ChangeWallMaterialScript>();
 
-					wall.name = "block"+block;
-					wall.transform.localScale = new Vector3(_blockScale, _blockScale, _blockScale);
+					wall.name = "flat"+flat;
+					wall.transform.localScale = new Vector3(_flatScale, _flatScale, _flatScale);
 					wall.transform.parent = floorGameObject.transform;
 
 					if(floor > 1)//BrickWall
 					{
-						if(block == 0)			
+						if(flat == 0)			
 							wallScript.ChangeWallMaterial(WallType.LeftBrickWall);		//LeftBrickWall
-						else if(block == hotelWidth-1)	
+						else if(flat == _hotelWidth-1)	
 							wallScript.ChangeWallMaterial(WallType.RightBrickWall);		//RightBrickWall
 						else
 							wallScript.ChangeWallMaterial(WallType.BrickWall);			//BrickWall
@@ -118,43 +115,43 @@ public class LevelMakerManagerScript : MonoBehaviour {
 					{
 						if(floor < 2)//Wall
 						{
-							if(block == 0)			
+							if(flat == 0)			
 								wallScript.ChangeWallMaterial(WallType.LeftWall);		//LeftWall
-							else if(block == hotelWidth-1)	
+							else if(flat == _hotelWidth-1)	
 								wallScript.ChangeWallMaterial(WallType.RightWall);		//LeftWall
 							else
 								wallScript.ChangeWallMaterial(WallType.Wall);			//Wall
 						}
 					}
 
-					if(hotel[floor, block] == 1)	//Window Waste Respawner
+					if(hotel[floor, flat] == 1)	//Window Waste Respawner
 					{
-						var blockGameObject = Instantiate(windowWasteRespawnerPrefab, pos + new Vector3(0, 0, -1), Quaternion.identity) as GameObject;
-						blockGameObject.name = "block"+block;
-						blockGameObject.transform.localScale = new Vector3(_blockScale, _blockScale, _blockScale)*0.75f;
-						blockGameObject.transform.parent = floorGameObject.transform;
-						GS.WastesRespawnerList.Add(blockGameObject);
+						var flatGameObject = Instantiate(windowWasteRespawnerPrefab, pos + new Vector3(0, 0, -1), Quaternion.identity) as GameObject;
+						flatGameObject.name = "flat"+flat;
+						flatGameObject.transform.localScale = new Vector3(_flatScale, _flatScale, _flatScale)*0.75f;
+						flatGameObject.transform.parent = floorGameObject.transform;
+						GS.WastesRespawnerList.Add(flatGameObject);
 					}
 				}
 				else
 				{
-					if(hotel[floor, block] == 2)	//Door
+					if(hotel[floor, flat] == 2)	//Door
 					{
 						if(floor == 0)
 						{
-							var blockGameObject = Instantiate(hotelDoorPrefab, pos, Quaternion.identity) as GameObject;
-							blockGameObject.name = "block"+block;
-							blockGameObject.transform.localScale = new Vector3(_blockScale, _blockScale, _blockScale);
-							blockGameObject.transform.parent = floorGameObject.transform;
+							var flatGameObject = Instantiate(hotelDoorPrefab, pos, Quaternion.identity) as GameObject;
+							flatGameObject.name = "flat"+flat;
+							flatGameObject.transform.localScale = new Vector3(_flatScale, _flatScale, _flatScale);
+							flatGameObject.transform.parent = floorGameObject.transform;
 						}
 						else
 						{
 							if(floor == 1)
 							{
-								var blockGameObject = Instantiate(hotelFacadePrefab, pos, Quaternion.identity) as GameObject;
-								blockGameObject.name = "block"+block;
-								blockGameObject.transform.localScale = new Vector3(_blockScale, _blockScale, _blockScale);
-								blockGameObject.transform.parent = floorGameObject.transform;
+								var flatGameObject = Instantiate(hotelFacadePrefab, pos, Quaternion.identity) as GameObject;
+								flatGameObject.name = "flat"+flat;
+								flatGameObject.transform.localScale = new Vector3(_flatScale, _flatScale, _flatScale);
+								flatGameObject.transform.parent = floorGameObject.transform;
 							}
 						}
 					}

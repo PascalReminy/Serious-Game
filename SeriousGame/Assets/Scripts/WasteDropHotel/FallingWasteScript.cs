@@ -11,6 +11,13 @@ public class FallingWasteScript : MonoBehaviour {
 
 	public float fallingSpeed = 3.0f;
 	private float _rotationAngle;
+	private GameStateWasteDropHotel GS;
+
+
+	void Awake()
+	{
+		GS = GameStateWasteDropHotel.Instance;
+	}
 	// Use this for initialization
 	void Start ()
 	{
@@ -22,8 +29,8 @@ public class FallingWasteScript : MonoBehaviour {
 	void Update ()
 	{
 		var currentPostion = this.transform.position;
-		this.transform.position = currentPostion - Vector3.up * this.fallingSpeed * Time.deltaTime;
-		this.transform.Rotate(0f, 0f, _rotationAngle * Time.deltaTime);
+		this.transform.position = currentPostion - Vector3.up * this.fallingSpeed * Time.deltaTime * GS.TimeScale;
+		this.transform.Rotate(0f, 0f, _rotationAngle * Time.deltaTime * GS.TimeScale);
 
 	}
 

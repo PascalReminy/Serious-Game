@@ -76,44 +76,43 @@ public class DumpsterControllerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
-		if(Input.GetKeyDown(moveLeftKeyCode) && !_wantToMoveLeft)
+		if(!GS.GameIsPaused && GS.GameIsStarted)
 		{
-			Debug.Log ("Left Arrow");
-			_wantToMoveLeft = true;
-		}
+			if(Input.GetKeyDown(moveLeftKeyCode) && !_wantToMoveLeft)
+			{
+				_wantToMoveLeft = true;
+			}
 
-		if(Input.GetKeyDown(moveRightKeyCode) && !_wantToMoveRight)
-		{
-			Debug.Log ("Right Arrow");
-			_wantToMoveRight = true;
-		}
+			if(Input.GetKeyDown(moveRightKeyCode) && !_wantToMoveRight)
+			{
+				_wantToMoveRight = true;
+			}
 
-		if(Input.GetKeyUp(moveLeftKeyCode))
-		{
-			_wantToMoveLeft = false;
-		}
+			if(Input.GetKeyUp(moveLeftKeyCode))
+			{
+				_wantToMoveLeft = false;
+			}
 
-		if(Input.GetKeyUp(moveRightKeyCode))
-		{
-			_wantToMoveRight = false;
-		}
+			if(Input.GetKeyUp(moveRightKeyCode))
+			{
+				_wantToMoveRight = false;
+			}
 
-		if(Input.GetKeyDown(paperDumpsterKeyCode))
-		{
-			SetActiveDumpster(WasteType.Paper);
-		}
+			if(Input.GetKeyDown(paperDumpsterKeyCode))
+			{
+				SetActiveDumpster(WasteType.Paper);
+			}
 
-		if(Input.GetKeyDown(plasticDumpsterKeyCode))
-		{
-			SetActiveDumpster(WasteType.Plastic);
-		}
+			if(Input.GetKeyDown(plasticDumpsterKeyCode))
+			{
+				SetActiveDumpster(WasteType.Plastic);
+			}
 
-		if(Input.GetKeyDown(glassDumpsterKeyCode))
-		{
-			SetActiveDumpster(WasteType.Glass);
+			if(Input.GetKeyDown(glassDumpsterKeyCode))
+			{
+				SetActiveDumpster(WasteType.Glass);
+			}
 		}
-
 	}
 
 	void FixedUpdate()

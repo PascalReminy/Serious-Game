@@ -44,6 +44,28 @@ public class GameStateWasteDropHotel{
 		}
 	}
 
+	private int _hotelWidth = 5;
+
+	public int HotelWidth {
+		get {
+			return _hotelWidth;
+		}
+		set {
+			_hotelWidth = value;
+		}
+	}
+
+	private int _hotelHeight = 7;
+
+	public int HotelHeight {
+		get {
+			return _hotelHeight;
+		}
+		set {
+			_hotelHeight = value;
+		}
+	}
+
 	private float _hotelScale = 2.0f;
 
 	public float HotelScale {
@@ -52,6 +74,29 @@ public class GameStateWasteDropHotel{
 		}
 		set {
 			_hotelScale = value;
+		}
+	}
+
+	private float _timeScale = 1.0f;
+
+	public float TimeScale {
+		get {
+			return _timeScale;
+		}
+		set {
+			_timeScale = value;
+		}
+	}
+
+
+	private float _intervaleBetweenWastesRespawn = 0.5f;
+
+	public float IntervaleBetweenWastesRespawn {
+		get {
+			return _intervaleBetweenWastesRespawn;
+		}
+		set {
+			_intervaleBetweenWastesRespawn = value;
 		}
 	}
 
