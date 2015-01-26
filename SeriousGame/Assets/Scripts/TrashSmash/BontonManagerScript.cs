@@ -19,5 +19,7 @@ public class BontonManagerScript : MonoBehaviour
             Application.LoadLevel("TrashSmash");
         if (tag == "Menu")
             Application.LoadLevel("Menu");
+        if (tag == "Quit")
+            Application.Quit();
     }
 }
