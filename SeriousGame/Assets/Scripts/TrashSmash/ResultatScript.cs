@@ -32,7 +32,7 @@ public class ResultatScript : MonoBehaviour {
         }
         else
         {
-            ResultatScore.text = "Tu peux mieux faire \n Voila ton score :" + score + " \n";
+            ResultatScore.text = "Tu peux mieux faire \n Voila ton score : " + score + " \n";
             MedalImage.gameObject.SetActive(false);
         }
 

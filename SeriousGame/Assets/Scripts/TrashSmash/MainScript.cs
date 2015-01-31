@@ -17,6 +17,7 @@ public class MainScript : MonoBehaviour {
     public GameObject DumpsterDisplayer;
     public GameObject PauseMenu;
     public GameObject Score;
+    public GameObject HighScore;
     public GameObject Resultat;
     public GameObject limite;
     public GameObject HitTrash;
@@ -28,7 +29,7 @@ public class MainScript : MonoBehaviour {
     public Transform _exemple;
     public Transform[] target;
     public Material[] resultat = new Material [2];
-    public float point = 0;
+    private float point = 0;
 
     Vector3 limitBorn = new Vector3(0.0f, 1.0f, 0.0f);
 
@@ -98,6 +99,7 @@ public class MainScript : MonoBehaviour {
             isPaused = false;
             HitTrash.SendMessage("SetNumberOfRecycledWastes", SendMessageOptions.RequireReceiver);
             Resultat.SendMessage("SeeScore", point, SendMessageOptions.RequireReceiver);
+            HighScore.SendMessage("SeeHighScore", point, SendMessageOptions.RequireReceiver);
         }
     }
 
