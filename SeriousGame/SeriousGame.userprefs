@@ -1,10 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\WasteDropHotel\GameController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\..\Goshaba\CogniQuizz\Assets\Scripts\StartLevelSpeechBubble.cs">
     <Files>
-      <File FileName="Assets\Scripts\WasteDropHotel\GameController.cs" Line="150" Column="4" />
-      <File FileName="Assets\Scripts\WasteDropHotel\DumpsterControllerScript.cs" Line="83" Column="1" />
-      <File FileName="Assets\Scripts\WasteDropHotel\LevelMakerManagerScript.cs" Line="8" Column="8" />
+      <File FileName="..\..\..\..\Goshaba\CogniQuizz\Assets\Scripts\StartLevelSpeechBubble.cs" Line="28" Column="35" />
+      <File FileName="..\..\..\..\Goshaba\CogniQuizz\Assets\Scripts\GameStateManager.cs" Line="201" Column="15" />
+      <File FileName="..\..\..\..\Goshaba\CogniQuizz\Assets\Scripts\WorldMapLevelButton.cs" Line="91" Column="33" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
