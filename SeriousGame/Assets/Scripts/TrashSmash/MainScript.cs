@@ -54,6 +54,7 @@ public class MainScript : MonoBehaviour {
         {
             _start = true;
             isPaused = true;
+            Resultat.SetActive(false);
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -89,7 +90,12 @@ public class MainScript : MonoBehaviour {
                 kill();
             }
 
-            StartCoroutine("trash"); 
+            StartCoroutine("trash");
+        }
+        else 
+        {
+            Resultat.SetActive(true);
+            Resultat.SendMessage("HowIPlay", SendMessageOptions.RequireReceiver);
         }
 
         if ((int)info.timer <= 0 || gameOver)

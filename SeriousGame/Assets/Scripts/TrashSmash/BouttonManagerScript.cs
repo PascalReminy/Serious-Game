@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BontonManagerScript : MonoBehaviour
+public class BouttonManagerScript : MonoBehaviour
 {
     void Update()
     {
