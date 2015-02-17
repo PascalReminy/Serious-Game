@@ -3,6 +3,17 @@ using System.Collections;
 
 public class BouttonManagerScript : MonoBehaviour
 {
+    private bool StateOfCreditButton;
+
+    public GameObject ButtonWasteDropHotel;
+    public GameObject ButtonTrashSmash;
+    public GameObject CreditText;
+
+    void Start()
+    {
+        CreditText.SetActive(false);
+    }
+
     void Update()
     {
 
@@ -21,5 +32,22 @@ public class BouttonManagerScript : MonoBehaviour
             Application.LoadLevel("Menu");
         if (tag == "Quit")
             Application.Quit();
+        if (tag == "Credit")
+        {
+            if (!StateOfCreditButton)
+            {
+                StateOfCreditButton = true;
+                ButtonWasteDropHotel.SetActive(false);
+                ButtonTrashSmash.SetActive(false);
+                CreditText.SetActive(true);
+            }
+            else
+            {
+                StateOfCreditButton = false;
+                ButtonWasteDropHotel.SetActive(true);
+                ButtonTrashSmash.SetActive(true);
+                CreditText.SetActive(false);
+            }
+        }
     }
 }
