@@ -21,7 +21,8 @@ public class ScoreScript : MonoBehaviour {
         else
         {
             HighScore = this.gameObject.GetComponent<Text>();
-            SeeHighScore(PlayerPrefs.GetFloat("HighScore"));
+            SeeHighScore(PlayerPrefs.GetFloat("HighScoreInTrashSmash"));
+            HighScore.text = "High Score : 0";
         }
     }
 
@@ -35,11 +36,11 @@ public class ScoreScript : MonoBehaviour {
 
         if (score > _HighScore)
         {
-            HighScore.text = "HighScore : " + score;
+            HighScore.text = "High Score : " + score;
             _HighScore = score; 
         }
-        
-        PlayerPrefs.SetFloat("HighScore", _HighScore);
+
+        PlayerPrefs.SetFloat("HighScoreInTrashSmash", _HighScore);
         PlayerPrefs.Save();
     }
 }
