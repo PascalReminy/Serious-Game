@@ -139,6 +139,7 @@ public class DumpsterControllerScript : MonoBehaviour {
 
 	public void SetActiveDumpster(WasteType type)
 	{
+		//TODO Move targetWaste In GameStateWasteDropHotel
 		targetWaste = type;
 		_paperDumpster.SetActive((type == WasteType.Paper));
 		_plasticDumpster.SetActive((type == WasteType.Plastic));
@@ -147,10 +148,11 @@ public class DumpsterControllerScript : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col)
 	{
+		//TODO callback a fonction In GameStateWasteDropHotel
 		//check if the waste match the dumpster
 		if(col.tag == targetWaste.ToString())
 		{
-			Debug.Log("good");
+			GS.PlayerScore += _goodRecyclingScore;
 			this._recyclingScoreText.text = "+"+(_goodRecyclingScore);
 			this._recyclingScoreText.color = goodRecyclingColor;
 			this._recyclingScoreAnimator.SetBool("isHidden", false);
@@ -172,6 +174,7 @@ public class DumpsterControllerScript : MonoBehaviour {
 		}
 		else
 		{
+			GS.PlayerScore += _wrongRecyclingScore;
 			this._recyclingScoreText.text = ""+(_wrongRecyclingScore);
 			this._recyclingScoreText.color = wrongRecyclingColor;
 			this._recyclingScoreAnimator.SetBool("isHidden", false);

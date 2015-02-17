@@ -44,6 +44,17 @@ public class GameStateWasteDropHotel{
 		}
 	}
 
+	private bool _gameIsFinished = false;
+
+	public bool GameIsFinished {
+		get {
+			return _gameIsFinished;
+		}
+		set {
+			_gameIsFinished = value;
+		}
+	}
+
 	private int _hotelWidth = 5;
 
 	public int HotelWidth {
@@ -97,6 +108,17 @@ public class GameStateWasteDropHotel{
 		}
 		set {
 			_intervaleBetweenWastesRespawn = value;
+		}
+	}
+
+	private int _playerScore = 0;
+
+	public int PlayerScore {
+		get {
+			return _playerScore;
+		}
+		set {
+			_playerScore = value;
 		}
 	}
 

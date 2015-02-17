@@ -1,10 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\..\Goshaba\CogniQuizz\Assets\Scripts\StartLevelSpeechBubble.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\..\Goshaba\QuizSaga\Assets\Scripts\LoadingDataScreen\ProcessingJsonDataManager.cs">
     <Files>
-      <File FileName="..\..\..\..\Goshaba\CogniQuizz\Assets\Scripts\StartLevelSpeechBubble.cs" Line="28" Column="35" />
-      <File FileName="..\..\..\..\Goshaba\CogniQuizz\Assets\Scripts\GameStateManager.cs" Line="201" Column="15" />
-      <File FileName="..\..\..\..\Goshaba\CogniQuizz\Assets\Scripts\WorldMapLevelButton.cs" Line="91" Column="33" />
+      <File FileName="..\..\..\..\Goshaba\QuizSaga\Assets\Scripts\LoadingDataScreen\ProcessingJsonDataManager.cs" Line="275" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

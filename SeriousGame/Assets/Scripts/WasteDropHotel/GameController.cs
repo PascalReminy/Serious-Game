@@ -24,16 +24,21 @@ public class GameController : MonoBehaviour {
 	void Awake()
 	{
 		GS = GameStateWasteDropHotel.Instance;
+		GS.PlayerScore = 0;
+		GS.TimeScale = 1.0f;
 		GS.WastesRespawnerList.Clear();
 		GS.NumberOfRecycledGlassWaste = 0;
 		GS.NumberOfRecycledPaperWaste = 0;
 		GS.NumberOfRecycledPlasticWaste = 0;
 		GS.GameIsStarted = false;
 		GS.GameIsPaused = false;
+		GS.GameIsFinished = false;
+
 	}
 	// Use this for initialization
 	void Start ()
 	{
+
 		this._timeRemaininginSeconds = this.gameDurationInSeconds;
 		this._timerAnimator = this.timerText.gameObject.GetComponent<Animator>();
 		this._floorIndexes = GenerateIntegersSequence(2, GS.HotelHeight, false);
@@ -81,6 +86,7 @@ public class GameController : MonoBehaviour {
 			this.timerText.text = TimerToString();
 			yield return new WaitForSeconds(1.0f);
 		}
+
 	}
 
 	IEnumerator StartTheFallOfWaste()
