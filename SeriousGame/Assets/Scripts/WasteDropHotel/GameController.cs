@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour {
 	private bool _gameIsStarted = false;
 	private bool _gameIsPaused = false;
 	private float _intervaleBetweenTwoFallsWastes = 1.0f;
-	private int _timeRemaininginSeconds;
+	private float _timeRemaininginSeconds;
 	private float _timeSpendSinceLastFall = 0.0f;
 	private Animator _timerAnimator;
 
@@ -39,7 +39,7 @@ public class GameController : MonoBehaviour {
 	void Start ()
 	{
 
-		this._timeRemaininginSeconds = this.gameDurationInSeconds;
+		this._timeRemaininginSeconds = (float)this.gameDurationInSeconds;
 		this._timerAnimator = this.timerText.gameObject.GetComponent<Animator>();
 		this._floorIndexes = GenerateIntegersSequence(2, GS.HotelHeight, false);
 		this._flatIndexes = GenerateIntegersSequence(0, GS.HotelWidth, false);
@@ -48,10 +48,11 @@ public class GameController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		if(!GS.GameIsStarted && Input.GetKeyDown(KeyCode.Space) && !GS.GameIsFinished)
+		if(!GS.GameIsStarted && Input.GetKeyDown(KeyCode.Space))
 		{
 			Debug.Log("Game is started");
 			GS.GameIsStarted = true;
+			GS.TimeScale = 1.0f;
 			this._timerAnimator.SetBool("TimerIsStarted", true);
 			StartCoroutine("StartTimer");
 			StartCoroutine("StartTheFallOfWaste");
@@ -86,11 +87,11 @@ public class GameController : MonoBehaviour {
 
 	IEnumerator StartTimer()
 	{
-		while(this._timeRemaininginSeconds > 0)
+		while(this._timeRemaininginSeconds > 0.0f)
 		{
-			this._timeRemaininginSeconds--;
+			this._timeRemaininginSeconds-= Time.deltaTime;
 			this.timerText.text = TimerToString();
-			yield return new WaitForSeconds(1.0f);
+			yield return new WaitForSeconds(Time.deltaTime);
 		}
 		GS.GameIsFinished = true;
 	}
@@ -128,8 +129,8 @@ public class GameController : MonoBehaviour {
 
 	public string TimerToString()
 	{
-		int m = this._timeRemaininginSeconds/60;
-		int s = this._timeRemaininginSeconds%60;
+		int m = (int)this._timeRemaininginSeconds/60;
+		int s = (int)this._timeRemaininginSeconds%60;
 
 		return ((m<10)?("0"+m):(""+m))+":"+((s<10)?("0"+s):(""+s));
 	}
