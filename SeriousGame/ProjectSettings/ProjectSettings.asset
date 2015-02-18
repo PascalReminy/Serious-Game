@@ -62,11 +62,11 @@ PlayerSettings:
   xboxEnableGuest: 0
   videoMemoryForVertexBuffers: 0
   m_SupportedAspectRatios:
-    4:3: 1
-    5:4: 1
-    16:10: 1
+    4:3: 0
+    5:4: 0
+    16:10: 0
     16:9: 1
-    Others: 1
+    Others: 0
   iPhoneBundleIdentifier: com.NerveStudio.SeriousGame
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
@@ -109,11 +109,28 @@ PlayerSettings:
   m_BuildTargetIcons:
   - m_BuildTarget: 
     m_Icons:
-    - m_Icon: {fileID: 0}
+    - m_Icon: {fileID: 2800000, guid: ccee33a8a1918914d92b1eef68c9b9a8, type: 3}
       m_Size: 128
+  - m_BuildTarget: Standalone
+    m_Icons:
+    - m_Icon: {fileID: 2800000, guid: ccee33a8a1918914d92b1eef68c9b9a8, type: 3}
+      m_Size: 1024
+    - m_Icon: {fileID: 2800000, guid: ccee33a8a1918914d92b1eef68c9b9a8, type: 3}
+      m_Size: 512
+    - m_Icon: {fileID: 2800000, guid: ccee33a8a1918914d92b1eef68c9b9a8, type: 3}
+      m_Size: 256
+    - m_Icon: {fileID: 2800000, guid: ccee33a8a1918914d92b1eef68c9b9a8, type: 3}
+      m_Size: 128
+    - m_Icon: {fileID: 2800000, guid: ccee33a8a1918914d92b1eef68c9b9a8, type: 3}
+      m_Size: 48
+    - m_Icon: {fileID: 2800000, guid: ccee33a8a1918914d92b1eef68c9b9a8, type: 3}
+      m_Size: 32
+    - m_Icon: {fileID: 2800000, guid: ccee33a8a1918914d92b1eef68c9b9a8, type: 3}
+      m_Size: 16
   m_BuildTargetBatching: []
   webPlayerTemplate: APPLICATION:Default
   m_TemplateCustomTags: {}
+  locationUsageDescription: 
   XboxTitleId: 
   XboxImageXexPath: 
   XboxSpaPath: 
