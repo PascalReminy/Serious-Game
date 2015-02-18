@@ -1,8 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\..\Goshaba\QuizSaga\Assets\Scripts\LoadingDataScreen\ProcessingJsonDataManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\WasteDropHotel\DumpsterControllerScript.cs">
     <Files>
-      <File FileName="..\..\..\..\Goshaba\QuizSaga\Assets\Scripts\LoadingDataScreen\ProcessingJsonDataManager.cs" Line="275" Column="1" />
+      <File FileName="Assets\Scripts\WasteDropHotel\PauseDialogScript.cs" Line="1" Column="1" />
+      <File FileName="..\..\..\..\Goshaba\QuizSaga\Assets\Facebook\Editor\iOS\third_party\XCodeEditor-for-Unity\XCProject.cs" Line="312" Column="54" />
+      <File FileName="Assets\Scripts\WasteDropHotel\DumpsterControllerScript.cs" Line="151" Column="20" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
