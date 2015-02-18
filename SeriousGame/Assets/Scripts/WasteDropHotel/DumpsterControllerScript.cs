@@ -76,7 +76,7 @@ public class DumpsterControllerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(!GS.GameIsPaused && GS.GameIsStarted)
+		if(!GS.GameIsPaused && GS.GameIsStarted && !GS.GameIsFinished)
 		{
 			if(Input.GetKeyDown(moveLeftKeyCode) && !_wantToMoveLeft)
 			{

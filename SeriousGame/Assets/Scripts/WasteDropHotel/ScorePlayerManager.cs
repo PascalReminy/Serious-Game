@@ -37,7 +37,19 @@ public class ScorePlayerManager : MonoBehaviour {
 		{
 			GS.PlayerScore = (GS.PlayerScore < 0)?0:GS.PlayerScore;
 			this._playerScore = GS.PlayerScore;
-			this._scoreText.text = "Score\n"+intToStringDigit(this._playerScore, 6);
+			this._scoreText.text = "Score\n"+this._playerScore.ToString("000000");
+		}
+
+		if(GS.GameIsFinished)
+		{
+			var previousHightscore = 0;
+			if(PlayerPrefs.HasKey("HighscoreWasteDropHotel"))
+			{
+				previousHightscore = PlayerPrefs.GetInt("HighscoreWasteDropHotel");
+			}
+			if(GS.PlayerScore > previousHightscore)
+				PlayerPrefs.SetInt("HighscoreWasteDropHotel",GS.PlayerScore);
+			this._highscoreText.text = "Highscore\n"+intToStringDigit(PlayerPrefs.GetInt("HighscoreWasteDropHotel"),6);
 		}
 	}
 

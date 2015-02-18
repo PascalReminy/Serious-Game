@@ -48,7 +48,7 @@ public class GameController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		if(!GS.GameIsStarted && Input.GetKeyDown(KeyCode.Space))
+		if(!GS.GameIsStarted && Input.GetKeyDown(KeyCode.Space) && !GS.GameIsFinished)
 		{
 			Debug.Log("Game is started");
 			GS.GameIsStarted = true;
@@ -57,7 +57,7 @@ public class GameController : MonoBehaviour {
 			StartCoroutine("StartTheFallOfWaste");
 		}
 
-		if(GS.GameIsStarted && Input.GetKeyDown(KeyCode.Escape))
+		if(GS.GameIsStarted && Input.GetKeyDown(KeyCode.Escape) && !GS.GameIsFinished)
 		{
 			Debug.Log("Game is paused");
 			GS.GameIsPaused = !GS.GameIsPaused;
@@ -76,6 +76,12 @@ public class GameController : MonoBehaviour {
 				StartCoroutine("StartTimer");
 			}
 		}
+
+		if(GS.GameIsFinished)
+		{
+			this.timerText.text = "GameOver";
+			GS.TimeScale = 0.0f;
+		}
 	}
 
 	IEnumerator StartTimer()
@@ -86,7 +92,7 @@ public class GameController : MonoBehaviour {
 			this.timerText.text = TimerToString();
 			yield return new WaitForSeconds(1.0f);
 		}
-
+		GS.GameIsFinished = true;
 	}
 
 	IEnumerator StartTheFallOfWaste()

@@ -21,12 +21,14 @@ public class PauseDialogScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-
-		if(this._isPaused != GS.GameIsPaused)
+		if(!GS.GameIsFinished)
 		{
-			Debug.Log("Pause Dialog State has changed");
-			this._isPaused = GS.GameIsPaused;
-			ShowOrHidePauseDialog();
+			if(this._isPaused != GS.GameIsPaused)
+			{
+				Debug.Log("Pause Dialog State has changed");
+				this._isPaused = GS.GameIsPaused;
+				ShowOrHidePauseDialog();
+			}
 		}
 	}
 
